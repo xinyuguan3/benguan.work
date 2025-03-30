@@ -184,3 +184,83 @@
      transform: rotateX(180deg); 
    } */
   
+  /* Navbar styles */
+  header {
+    background: rgba(255, 255, 255, 0.715) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  header a {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  header a:hover {
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    header {
+      background: rgba(255, 255, 255, 0.536) !important;
+      border-bottom: 1px solid rgba(207, 207, 207, 0.386);
+    }
+
+    header a {
+      color: #000000;
+    }
+
+    header a:hover {
+      color: rgba(161, 161, 161, 0.847);
+    }
+  }
+
+  /* Remove the old navbar styles that weren't working */
+  .bg-background\/95,
+  .bg-background\/90,
+  .border-border\/40,
+  .hover\:text-foreground\/80:hover {
+    /* These classes will be overridden by the new styles above */
+  }
+
+  /* Container styles */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px;
+    }
+  }
+  
