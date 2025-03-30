@@ -9,6 +9,7 @@ import { IconCloud } from "./components/magicui/icon-cloud";
 import { GlareCard } from "./components/ui/glare-card";
 import { AnimatePresence, motion } from "motion/react";
 import { CanvasRevealEffect } from "./components/ui/canvas-reveal-effect";
+import { TracingBeam } from "./components/ui/tracing-beam";
 import {
   BellIcon,
   CalendarIcon,
@@ -22,6 +23,7 @@ import { BentoCard, BentoGrid } from "./components/magicui/bento-grid";
 import ConnectionLines from './components/ConnectionLines';
 import bookSideSvg from './assets/book-side.svg'
 import profilePic from './assets/profilepic.jpg';
+import SkillRadar from './components/SkillRadar';
 
 interface Point {
   x: number;
@@ -36,7 +38,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <GitHubCard />,
-    className: "lg:row-start-3 lg:row-end-4 lg:col-start-2 lg:col-end-3",
+    className: "lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-3",
   },
   {
     Icon: () => <img src="https://cdn.simpleicons.org/spotify" alt="Spotify" className="w-12 h-12" />,
@@ -45,66 +47,49 @@ const features = [
     href: "/",
     cta: "",
     background: <SpotifyPlayer />,
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
   },
   {
     Icon: PersonIcon,
     name: "Ben GUAN",
-    description: "Supports 100+ languages and counting.",
+    description: "Porduct Designer&UI/UX Designer.",
     href: "/",
-    cta: "Learn more",
-    background: <GlareCard className="items-center justify-center">
-      <p className="absolute text-white font-bold text-xl mt-4 top-10 z-1">UI/UX Designer</p>
-      <img src={profilePic} className="absolute opacity-100" alt="Profile" />
-    {/* <svg
-      width="66"
-      height="65"
-      viewBox="0 0 66 65"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="h-7 w-7 text-white"
-    >
-      <path
-        d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-        stroke="currentColor"
-        strokeWidth="15"
-        strokeMiterlimit="3.86874"
-        strokeLinecap="round"
-      />
-    </svg> */}
+    cta: "",
+    background: 
+    <div className="flex flex-row items-center justify-between w-full h-full">
+        <div className="w-1/3 h-full">
+          <IconCloudDemo/>
+        </div>
+        <GlareCard className="items-center justify-center">
+          <p className="absolute text-white font-bold text-xl mt-4 bottom-10 z-1">UI/UX Designer</p>
+          <img src={profilePic} className="absolute opacity-100" alt="Profile" />    
+        </GlareCard>
+        <div className="w-1/3 h-full">
+          <SkillRadar />
+        </div>
     
-  </GlareCard>
+  </div>
   ,
-    className: "lg:col-start-1 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+    className: "lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-2",
   },
-  {
-    Icon: CalendarIcon,
+  { 
+    Icon: FileTextIcon,
     name: "Blogs",
-    description: "Use the calendar to filter your files by date.",
+    description: "I write to clear my thoughts. Hoping it could share some value for you too",
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-4",
+    className: "lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-3",
   },
   {
     Icon: BellIcon,
-    name: "Notifications",
+    name: "履行的承诺:0",
     description:
       "Get notified when someone shares a file or mentions you in a comment.",
     href: "/",
     cta: "Learn more",
     background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
-  },
-  {
-    Icon: BellIcon,
-    name: "Skillset",
-    description:
-      "Get notified when someone shares a file or mentions you in a comment.",
-    href: "/",
-    cta: "Learn more",
-    background: <IconCloudDemo/>,
-    className: "lg:col-start-1 lg:col-end-4 lg:row-start-4 lg:row-end-5",
+    className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
   }
 ];
 
@@ -315,7 +300,7 @@ const ShowBook = () => {
             {/* <div className="accentDarkBg rounded-3xl overflow-hidden" ref={iconCloudRef}>
               <IconCloudDemo />
             </div> */}
-            <BentoGrid className="lg:grid-rows-4 lg:grid-cols-4">
+            <BentoGrid className="lg:grid-rows-2 lg:grid-cols-4">
               {features.map((feature) => (
                 <BentoCard 
                   key={feature.name} 
