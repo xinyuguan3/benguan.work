@@ -1,0 +1,101 @@
+.book-notes-container {
+  position: fixed;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 25px;
+  padding: 20px;
+  min-width: 300px;
+  color: white;
+  font-family: 'Persona5MenuFont', sans-serif;
+  animation: slideIn 0.3s ease-out;
+  border: 2px solid #ff0000;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #ff0000;
+  padding-bottom: 10px;
+}
+
+.notes-title {
+  font-size: 24px;
+  color: #ff0000;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.notes-count {
+  font-size: 18px;
+  color: #ffffff;
+}
+
+.notes-content {
+  overflow: hidden;
+}
+
+.note-item {
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 10px;
+  transform: skew(-5deg);
+  transition: all 0.3s ease;
+}
+
+.note-item:hover {
+  transform: skew(-5deg) scale(1.02);
+  background: rgba(255, 0, 0, 0.2);
+}
+
+.note-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.note-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #ff0000;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+  color: #ff0000;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 添加红色描边效果 */
+.note-item::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #ff0000;
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.note-item:hover::before {
+  opacity: 1;
+} 
