@@ -170,6 +170,7 @@ const slugs = [
   "amazonaws",
   "mysql",
   "nginx",
+  "swift",
   "vercel",
   "docker",
   "git",
