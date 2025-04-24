@@ -9,7 +9,12 @@ import { IconCloud } from "./components/magicui/icon-cloud";
 import { GlareCard } from "./components/ui/glare-card";
 import { AnimatePresence, motion } from "motion/react";
 import { CanvasRevealEffect } from "./components/ui/canvas-reveal-effect";
-import { TracingBeam } from "./components/ui/tracing-beam";
+import { FollowerPointerCard } from "./components/ui/following-pointer";
+import { BlurFade } from "./components/magicui/blur-fade";
+// import { BlurFadeText } from "./components/magicui/blur-fade-text";
+import { ProjectCard } from "./components/project-card";
+import { DATA } from "./data/resume";
+
 import {
   BellIcon,
   CalendarIcon,
@@ -29,6 +34,7 @@ interface Point {
   x: number;
   y: number;
 }
+const BLUR_FADE_DELAY = 0.04;
 
 const features = [
   {
@@ -235,6 +241,7 @@ const ShowBook = () => {
     });
   };
 
+
   const handleBookLeave = () => {
     setHoveredBook(null);
   };
@@ -295,12 +302,54 @@ const ShowBook = () => {
           </div>
         </div>
       </header>
+      
+      <section id="projects">
+              <div className="space-y-12 w-full py-12">
+                <BlurFade delay={BLUR_FADE_DELAY * 11}>
+                  <div className="flex flex-col items-center justify-center space-y-4 text-center">
+                    <div className="space-y-2">
+                      <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                        My Projects
+                      </div>
+                      <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                        Check out my latest work
+                      </h2>
+                      <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                        I&apos;ve worked on a variety of projects, from simple
+                        websites to complex web applications. Here are a few of my
+                        favorites.
+                      </p>
+                    </div>
+                  </div>
+                </BlurFade>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
+                  {DATA.projects.map((project, id) => (
+                    <BlurFade
+                      key={project.title}
+                      delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                    >
+                      <ProjectCard
+                        href={project.href}
+                        key={project.title}
+                        title={project.title}
+                        description={project.description}
+                        dates={project.dates}
+                        tags={project.technologies}
+                        image={project.image}
+                        video={project.video}
+                        links={project.links}
+                      />
+                    </BlurFade>
+                  ))}
+                </div>
+              </div>
+          </section>
       <div className="container max-w-[1920px] mx-auto justify-center">
+        
         <div className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8">
+          
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">          
-            {/* <div className="accentDarkBg rounded-3xl overflow-hidden" ref={iconCloudRef}>
-              <IconCloudDemo />
-            </div> */}
+
             <BentoGrid className="lg:grid-rows-2 lg:grid-cols-4">
               {features.map((feature) => (
                 <BentoCard 
@@ -311,7 +360,9 @@ const ShowBook = () => {
                 />
               ))}
             </BentoGrid>
+            
           </div>
+          
         </div>
         <section id="books" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4">
           <div className="w-full">
@@ -376,12 +427,14 @@ const ShowBook = () => {
         </section>
 
       
-      <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-black w-full gap-4 mx-auto px-8">
+      {/* <div className="py-20 flex flex-col lg:flex-row items-center justify-center bg-white dark:bg-black w-full gap-4 mx-auto px-8">
         <Card title="Camel-Webapp" icon={<AceternityIcon />}>
+        
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
+          
         </Card>
         <Card title="Nisha is Munni" icon={<AceternityIcon />}>
           <CanvasRevealEffect
@@ -393,7 +446,6 @@ const ShowBook = () => {
             ]}
             dotSize={2}
           />
-          {/* Radial gradient for the cute fade */}
           <div className="absolute inset-0 [mask-image:radial-gradient(400px_at_center,white,transparent)] bg-black/50 dark:bg-black/90" />
         </Card>
         <Card title="Munni is Aditi" icon={<AceternityIcon />}>
@@ -403,7 +455,7 @@ const ShowBook = () => {
             colors={[[125, 211, 252]]}
           />
         </Card>
-      </div>
+      </div> */}
           
       
         

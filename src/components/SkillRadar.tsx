@@ -20,7 +20,7 @@ ChartJS.register(
 );
 
 const skillsData = {
-  labels: ['Code', 'Empathy', 'Product', 'Detail', 'Research', 'Deployment'],
+  labels: ['Gaming', 'Empathy', 'Product', 'Detail', 'Research', 'Deployment'],
   datasets: [
     {
       label: 'Skills',
