@@ -43,7 +43,7 @@ const features = [
     href: "/",
     cta: "Learn more",
     background: <GitHubCard />,
-    className: "lg:row-start-2 lg:row-end-3 lg:col-start-2 lg:col-end-3",
+    className: "lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:col-end-3",
   },
   {
     Icon: () => <img src="https://cdn.simpleicons.org/spotify" alt="Spotify" className="w-12 h-12" />,
@@ -52,30 +52,7 @@ const features = [
     href: "/",
     cta: "",
     background: <SpotifyPlayer />,
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-2 lg:row-end-3",
-  },
-  {
-    Icon: PersonIcon,
-    name: "Ben GUAN",
-    description: "Porduct Designer&UI/UX Designer.",
-    href: "/",
-    cta: "",
-    background: 
-    <div className="flex flex-row items-center justify-between w-full h-full">
-        <div className="w-1/3 h-full">
-          <IconCloudDemo/>
-        </div>
-        
-          <p className="absolute text-white font-bold text-xl mt-4 bottom-10 z-1">UI/UX Designer</p>
-          <img src={profilePic} className="absolute opacity-100" alt="Profile" />    
-        
-        <div className="w-1/3 h-full">
-          <SkillRadar />
-        </div>
-    
-  </div>
-  ,
-    className: "lg:col-start-1 lg:col-end-5 lg:row-start-1 lg:row-end-2",
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2",
   },
   { 
     Icon: FileTextIcon,
@@ -83,18 +60,8 @@ const features = [
     description: "I write to clear my thoughts. Hoping it could share some value for you too",
     href: "/",
     cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-4 lg:col-end-5 lg:row-start-2 lg:row-end-3",
-  },
-  {
-    Icon: BellIcon,
-    name: "履行的承诺:0",
-    description:
-      "Get notified when someone shares a file or mentions you in a comment.",
-    href: "/",
-    cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-3",
+    background: <div className="absolute -right-0 -top-0 opacity-90"><SkillRadar/></div>,
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   }
 ];
 
@@ -294,9 +261,9 @@ const ShowBook = () => {
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6 gap-10">
-              <a href="#books">Books</a>
               <a href="#projects">Projects</a>
-              <a href="#about">About</a>
+              <a href="#books">Books</a>
+              {/* <a href="#about">About</a> */}
             </nav>
           </div>
         </div>
@@ -379,7 +346,7 @@ const ShowBook = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">          
 
-            <BentoGrid className="lg:grid-rows-2 lg:grid-cols-4">
+            <BentoGrid className="lg:grid-rows-1 lg:grid-cols-3">
               {features.map((feature) => (
                 <BentoCard 
                   key={feature.name} 

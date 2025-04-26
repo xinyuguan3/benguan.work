@@ -154,16 +154,16 @@ const GitHubCard = () => {
               setShow3D(false);
             }}
           >
-            2D视图
+
+            2D
           </button>
           <button 
             className={`view-button ${show3D ? 'active' : ''}`}
             onClick={() => {
-              console.log('Switching to 3D view');
               setShow3D(true);
             }}
           >
-            3D视图
+            3D
           </button>
         </div>
         
