@@ -5,5 +5,5 @@ export interface Book {
   description: string;
   coverImage: string;
   sideImage?: string;
-  category: 'Aethetics' | 'AI' | 'Tech' | 'Finance' | 'Sociology' ;
+  category: 'Experience' | 'AI' | 'Tech' | 'Finance' | 'Sociology' ;
 }

@@ -6,14 +6,13 @@ import BookNotes from './components/BookNotes';
 import GitHubCard from './components/GitHubCard';
 import SpotifyPlayer from './components/SpotifyPlayer';
 import { IconCloud } from "./components/magicui/icon-cloud";
-import { GlareCard } from "./components/ui/glare-card";
 import { AnimatePresence, motion } from "motion/react";
 import { CanvasRevealEffect } from "./components/ui/canvas-reveal-effect";
 import { FollowerPointerCard } from "./components/ui/following-pointer";
 import { BlurFade } from "./components/magicui/blur-fade";
-// import { BlurFadeText } from "./components/magicui/blur-fade-text";
 import { ProjectCard } from "./components/project-card";
 import { DATA } from "./data/resume";
+import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 
 import {
   BellIcon,
@@ -66,10 +65,10 @@ const features = [
         <div className="w-1/3 h-full">
           <IconCloudDemo/>
         </div>
-        <GlareCard className="items-center justify-center">
+        
           <p className="absolute text-white font-bold text-xl mt-4 bottom-10 z-1">UI/UX Designer</p>
           <img src={profilePic} className="absolute opacity-100" alt="Profile" />    
-        </GlareCard>
+        
         <div className="w-1/3 h-full">
           <SkillRadar />
         </div>
@@ -211,7 +210,7 @@ const techMapping = {
 };
 
 const ShowBook = () => {
-  const [selectedCategory, setSelectedCategory] = useState<Book['category']>('Aethetics');
+  const [selectedCategory, setSelectedCategory] = useState<Book['category']>('Finance');
   const [hoveredBook, setHoveredBook] = useState<{ id: string; position: { x: number; y: number } } | null>(null);
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [connectionPoints, setConnectionPoints] = useState<{ from: Point; to: Point[] } | null>(null);
@@ -223,7 +222,7 @@ const ShowBook = () => {
   })) as Book[];
 
   const booksByCategory = {
-    Aethetics: books.filter(book => book.category === 'Aethetics'),
+    Experience: books.filter(book => book.category === 'Experience'),
     Tech: books.filter(book => book.category === 'Tech'),
     Finance: books.filter(book => book.category === 'Finance'),
     Sociology: books.filter(book => book.category === 'Sociology'),
@@ -302,48 +301,78 @@ const ShowBook = () => {
           </div>
         </div>
       </header>
-      
+      <section id="hero">
+      <div className="w-full flex justify-center">
+        <div className="mx-auto w-full max-w-2xl space-y-8">
+          <div className="gap-2 flex justify-between">
+            <div className="flex-col flex flex-1 space-y-1.5">
+              <BlurFade
+                delay={BLUR_FADE_DELAY}
+                className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
+                offset={8} inView>
+                <h2>Hi, I'm {DATA.name.split(" ")[0]} 👋</h2>
+              </BlurFade>
+              
+              <BlurFade
+                className="max-w-[600px] md:text-xl"
+                delay={BLUR_FADE_DELAY}
+                offset={8} inView>
+                <p>{DATA.description}</p>
+              </BlurFade>
+            </div>
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <Avatar className="size-28 border">
+                <AvatarImage alt={DATA.name} src={profilePic} />
+                <AvatarFallback>{DATA.initials}</AvatarFallback>
+              </Avatar>
+            </BlurFade>
+          </div>
+        </div>
+      </div>
+      </section>
       <section id="projects">
-              <div className="space-y-12 w-full py-12">
-                <BlurFade delay={BLUR_FADE_DELAY * 11}>
-                  <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                    <div className="space-y-2">
-                      <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                        My Projects
-                      </div>
-                      <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                        Check out my latest work
-                      </h2>
-                      <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                        I&apos;ve worked on a variety of projects, from simple
-                        websites to complex web applications. Here are a few of my
-                        favorites.
-                      </p>
-                    </div>
-                  </div>
-                </BlurFade>
-                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-                  {DATA.projects.map((project, id) => (
-                    <BlurFade
-                      key={project.title}
-                      delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-                    >
-                      <ProjectCard
-                        href={project.href}
-                        key={project.title}
-                        title={project.title}
-                        description={project.description}
-                        dates={project.dates}
-                        tags={project.technologies}
-                        image={project.image}
-                        video={project.video}
-                        links={project.links}
-                      />
-                    </BlurFade>
-                  ))}
+        <div className="space-y-12 w-full py-12">
+          <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <div className="flex flex-col items-center justify-center space-y-4 text-center">
+              <div className="space-y-2">
+                <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                  My Projects
                 </div>
+                <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
+                  Check out my latest work
+                </h2>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  I&apos;ve worked on a variety of projects, from simple
+                  websites to complex games. Here are a few of my
+                  favorites.
+                </p>
               </div>
-          </section>
+            </div>
+          </BlurFade>
+          <div className="w-full flex justify-center">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px]">
+              {DATA.projects.map((project, id) => (
+                <BlurFade
+                  key={project.title}
+                  delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                >
+                  <ProjectCard
+                    href={project.href}
+                    key={project.title}
+                    title={project.title}
+                    description={project.description}
+                    dates={project.dates}
+                    tags={project.technologies}
+                    image={project.image}
+                    video={project.video}
+                    links={project.links}
+                  />
+                </BlurFade>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <div className="container max-w-[1920px] mx-auto justify-center">
         
         <div className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8">
@@ -387,7 +416,7 @@ const ShowBook = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="w-full mt-2 lg:mt-[0px] max-w-md text-black-50 accentDarkBg rounded-3xl p-6">
+                <div className="w-full mt-2 lg:mt-[0px] max-w-md text-white-50 accentDarkBg rounded-3xl p-6">
                   <div className="whitespace-nowrap text-orange-400 text-4xl mb-2 font-bold">Reading List</div>
                   I have read {books.length}+ books over last five years. <br />
                   Here are books I highly recommended!
@@ -459,13 +488,13 @@ const ShowBook = () => {
           
       
         
-        {hoveredBook && (
+        {/* {hoveredBook && (
           <BookNotes
             bookId={hoveredBook.id}
             visible={true}
             position={hoveredBook.position}
           />
-        )}
+        )} */}
         {connectionPoints && (
           <ConnectionLines
             from={connectionPoints.from}
