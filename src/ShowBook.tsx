@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import React, { useState, useRef } from 'react';
 import './ShowBook.css';
 import { Book } from './types';
@@ -13,7 +14,8 @@ import { BlurFade } from "./components/magicui/blur-fade";
 import { ProjectCard } from "./components/project-card";
 import { DATA } from "./data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
-
+import { InteractiveGridPattern } from "./components/magicui/interactive-grid-pattern";
+import { FlickeringGrid } from "./components/magicui/flickering-grid";
 import {
   BellIcon,
   CalendarIcon,
@@ -252,6 +254,16 @@ const ShowBook = () => {
 
   return (
     <>
+      {/* <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
+    <InteractiveGridPattern
+      width={40}
+      height={40}
+      squares={[32, 18]} // 你可以根据屏幕比例调整
+    />
+  </div> */}
+
+      {/* <FlickeringGrid /> */}
+
       <header className="sticky top-0 z-40 w-full">
         <div className="container flex h-16 items-center">
           <div className="mr-4 hidden md:flex">
@@ -268,6 +280,8 @@ const ShowBook = () => {
           </div>
         </div>
       </header>
+
+    
       <section id="hero">
       <div className="w-full flex justify-center">
         <div className="mx-auto w-full max-w-2xl space-y-8">
@@ -470,6 +484,7 @@ const ShowBook = () => {
           />
         )}
       </div>
+
     </>
   );
 };
