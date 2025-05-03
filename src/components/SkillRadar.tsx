@@ -20,18 +20,18 @@ ChartJS.register(
 );
 
 const skillsData = {
-  labels: ['Gaming', 'Empathy', 'Product', 'Detail', 'Research', 'Deployment'],
+  labels: ['Gamification', 'Empathy', 'Product', 'Detail', 'Research', 'Coding'],
   datasets: [
     {
       label: 'Skills',
-      data: [60, 85, 75, 68, 82, 32],
-      backgroundColor: 'rgba(255, 233, 33, 0.51)',
-      borderColor: 'rgba(254, 231, 100, 0.92)',
+      data: [60, 85, 75, 68, 82, 62],
+      backgroundColor: 'rgba(18, 140, 59, 0.51)',
+      borderColor: 'rgba(59, 199, 82, 0.92)',
       borderWidth: 1,
-      pointBackgroundColor: 'rgb(245, 202, 94)',
+      pointBackgroundColor: 'rgb(29, 179, 61)',
       pointBorderColor: '#fff',
       pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgb(245, 202, 94)',
+      pointHoverBorderColor: 'rgb(14, 159, 65)',
       pointRadius: 5,
     }
   ]
@@ -52,7 +52,7 @@ const options = {
         lineWidth: 1
       },
       pointLabels: {
-        color: 'rgba(113, 151, 226, 0.8)',
+        color: 'rgba(0, 0, 0, 0.8)',
         font: {
           size: 12,
           family: "'Quicksand', sans-serif"
@@ -61,7 +61,7 @@ const options = {
       ticks: {
         display: true,
         backdropColor: 'transparent',
-        color: 'rgba(127, 162, 245, 0.6)',
+        color: 'rgba(3, 21, 64, 0.6)',
         stepSize: 20,
         count: 5,
         font: {
@@ -92,7 +92,7 @@ const options = {
 
 const SkillRadar = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-4" style={{ height: '300px' }}>
+    <div className="w-full h-full flex items-center justify-center p-2" style={{ height: '220px' }}>
       <Radar data={skillsData} options={options} />
     </div>
   );

@@ -145,7 +145,7 @@ const GitHubCard = () => {
       </div> */}
 
       <div className="github-contributions">
-        <h3>最近30天的贡献</h3>
+        <h3>Recent 30 Days Contributions</h3>
         <div className="contributions-view-toggle">
           <button 
             className={`view-button ${!show3D ? 'active' : ''}`}
@@ -177,7 +177,7 @@ const GitHubCard = () => {
                   key={index}
                   className="contribution-day"
                   style={{ backgroundColor: getContributionColor(day.count) }}
-                  title={`${formatDate(day.date)} - ${day.count} 次贡献`}
+                  title={`${formatDate(day.date)} - ${day.count} contributions`}
                 />
               ))}
             </div>
@@ -185,7 +185,7 @@ const GitHubCard = () => {
         )}
         
         <div className="contributions-count">
-          {stats.contributions?.last30Days || 0} 次贡献（最近30天）
+          {stats.contributions?.last30Days || 0} contributions (last 30 days)
         </div>
       </div>
     </div>

@@ -17,12 +17,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 import { InteractiveGridPattern } from "./components/magicui/interactive-grid-pattern";
 import { FlickeringGrid } from "./components/magicui/flickering-grid";
 import {
-  BellIcon,
-  CalendarIcon,
-  FileTextIcon,
-  GlobeIcon,
-  PersonIcon,
-  GitHubLogoIcon
+  RulerSquareIcon,
+  GitHubLogoIcon,
+  BarChartIcon
 } from "@radix-ui/react-icons";
  
 import { BentoCard, BentoGrid } from "./components/magicui/bento-grid";
@@ -30,6 +27,7 @@ import ConnectionLines from './components/ConnectionLines';
 import bookSideSvg from './assets/book-side.svg'
 import profilePic from './assets/profilepic.jpg';
 import SkillRadar from './components/SkillRadar';
+import { ShowArt } from './components/ShowArt';
 
 interface Point {
   x: number;
@@ -48,22 +46,31 @@ const features = [
     className: "lg:row-start-1 lg:row-end-2 lg:col-start-2 lg:col-end-3",
   },
   {
+    Icon: RulerSquareIcon,
+    name: "Designs",
+    description: "Do a lot of design work. Love to design and build products.",
+    href: "/",
+    cta: "",
+    background: <ShowArt/>,
+    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2",
+  },
+  { 
+    Icon: BarChartIcon,
+    name: "Skills",
+    description: "I write to clear my thoughts. Hoping it could share some value for you too",
+    href: "/",
+    cta: "Learn more",
+    background: <div className="opacity-90"><SkillRadar/></div>,
+    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+  },
+  {
     Icon: () => <img src="https://cdn.simpleicons.org/spotify" alt="Spotify" className="w-12 h-12" />,
     name: "Music List",
     description: "Great taste in music. Well trained since childhood",
     href: "/",
     cta: "",
     background: <SpotifyPlayer />,
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-2",
-  },
-  { 
-    Icon: FileTextIcon,
-    name: "Blogs",
-    description: "I write to clear my thoughts. Hoping it could share some value for you too",
-    href: "/",
-    cta: "Learn more",
-    background: <div className="absolute -right-0 -top-0 opacity-90"><SkillRadar/></div>,
-    className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
+    className: "lg:col-start-4 lg:col-end-5 lg:row-start-1 lg:row-end-2",
   }
 ];
 
@@ -107,17 +114,6 @@ const Card = ({
       </h2>
     </div>
   </div>
-  );
-  };
-
-  const AceternityIcon = () => {
-  return (
-  <svg width="66" height="65" viewBox="0 0 66 65" fill="none" xmlns="http://www.w3.org/2000/svg"
-    className="h-10 w-10 text-black dark:text-white group-hover/canvas-card:text-white ">
-    <path d="M8 8.05571C8 8.05571 54.9009 18.1782 57.8687 30.062C60.8365 41.9458 9.05432 57.4696 9.05432 57.4696"
-      stroke="currentColor" strokeWidth="15" strokeMiterlimit="3.86874" strokeLinecap="round"
-      style={{ mixBlendMode: "darken" }} />
-  </svg>
   );
   };
 
@@ -360,7 +356,7 @@ const ShowBook = () => {
           
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">          
 
-            <BentoGrid className="lg:grid-rows-1 lg:grid-cols-3">
+            <BentoGrid className="lg:grid-rows-1 lg:grid-cols-4">
               {features.map((feature) => (
                 <BentoCard 
                   key={feature.name} 
