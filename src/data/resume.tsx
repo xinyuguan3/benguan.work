@@ -3,6 +3,9 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Icons } from "../components/icons";
 import AgentSociety from "../assets/AgentSociety.mp4"
 import RelatoDemo from "../assets/RelatoDemo.mp4"
+import Oasis from "../assets/Oasis.png"
+import RelatoNetwork from "../assets/RelatoNetwork.png"
+import ArkalaVid from "../assets/Arkala.mp4"
 export const DATA = {
   name: "GUAN Ben Xinyu(关新宇)",
   initials: "DV",
@@ -10,7 +13,7 @@ export const DATA = {
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "UI Designer turned Game Designer. I love building system generates interactive experiences. Passionate about UI/UX design.",
+    "Passionate about Game Design. I love exploring the connections between human, including market、social class、information exchange, etc.",
   summary:
     "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
   avatarUrl: "./assets/profilepic.jpg",
@@ -182,12 +185,68 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Oasis",
+      href: "https://oasis.camel-ai.org/",
+      dates: "Nov 2024 - April 2025",
+      active: true,
+      description:
+        "A Social Media simulation project made up of 1000+ AI users, during experiment, agents emerge wisdom in the advanced layer, we might discover scaling law of AI agents. Lead designing playable demo.",
+      technologies: [
+        "Next.js",
+        "Typescript",
+        "PostgreSQL",
+        "Prisma",
+        "TailwindCSS",
+        "Stripe",
+        "Shadcn UI",
+        "Magic UI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://oasis.camel-ai.org/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/camel-ai/oasis?tab=readme-ov-file",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: Oasis,
+      video: "https://private-user-images.githubusercontent.com/115660088/428396993-3bd2553c-d25d-4d8c-a739-1af51354b15a.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYzNzI4MDYsIm5iZiI6MTc0NjM3MjUwNiwicGF0aCI6Ii8xMTU2NjAwODgvNDI4Mzk2OTkzLTNiZDI1NTNjLWQyNWQtNGQ4Yy1hNzM5LTFhZjUxMzU0YjE1YS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNFQxNTI4MjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNTdlMmFlMzZhNTkzNDRlZWRiM2JkMDM4NzM5MGRmODMwOGQzYjQ2OWQ3NDU5ZDQ2MzNmY2JkMzVkOTJhOTNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.c65dm8JRrDYHOmuihGRiXPVE3HOSPpTeewdolj21j8U",
+    },
+    {
+      title: "AI Society Simulator Game",
+      href: "https://www.bilibili.com/video/BV1zh4y1V7Yj/?spm_id_from=888.80997.embed_other.whitelist&t=5.319657&bvid=BV1zh4y1V7Yj&vd_source=a9ee34e95c1a809cca36a776e387600c",
+      dates: "April 2024 - May 2024",
+      active: true,
+      description:
+        "AI Story Generator which simulates a small society and generates random events based on villagers automated interactions. Each villager is an AI NFT agent on SUI blockchain. Nobody can change the game stats once minted, the agent will be self-evolving through LLM reflections.",
+      technologies: [
+        "Unity",
+        "C#",
+        "OpenAI",
+        "Python"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://youtu.be/fOpqMKhEAEk",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: RelatoNetwork,
+      video:
+        RelatoDemo,
+    },
+    {
       title: "Agent Society",
       href: "https://agentsociety.fiblab.net/exp/9feb9ea0-3dcd-4ed1-9348-0d26e43d0da6",
       dates: "Feb 2025 - Jun 2025",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "AI Agent Society simulation tool, researchers can simulate in market behaviour, information exchange, pandemic transmission, etc. Led UI/UX design & frontend development.",
       technologies: [
         "Unity",
         "C#",
@@ -197,8 +256,13 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://chatcollect.com",
+          href: "https://agentsociety.fiblab.net/exp/9feb9ea0-3dcd-4ed1-9348-0d26e43d0da6",
           icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/tsinghua-fib-lab/agentsociety",
+          icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
@@ -206,93 +270,29 @@ export const DATA = {
         AgentSociety,
     },
     {
-      title: "Camel-AI",
-      href: "https://magicui.design",
-      dates: "March 2024 - April 2025",
-      active: true,
-      description:
-        "Designed, developed animated Webapp for Multi-Agent Framework Camel-AI.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://magicui.design",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
-    },
-    {
-      title: "Relato",
-      href: "https://llm.report",
-      dates: "April 2024 - May 2024",
+      title: "Arkala",
+      href: "",
+      dates: "April 2023 - Dec 2023",
       active: true,
       description:
         "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://llm.report",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/dillionverma/llm.report",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "https://cdn.llm.report/openai-demo.mp4",
-    },
-    {
-      title: "AI Story Generator",
-      href: "https://www.bilibili.com/video/BV1zh4y1V7Yj/?spm_id_from=888.80997.embed_other.whitelist&t=5.319657&bvid=BV1zh4y1V7Yj&vd_source=a9ee34e95c1a809cca36a776e387600c",
-      dates: "April 2024 - May 2024",
-      active: true,
-      description:
-        "Developed an AI Story Generator which simulates a small society and generates stories based on the user's input.",
-      technologies: [
         "Unity",
         "C#",
         "OpenAI",
+        "Python"
       ],
       links: [
         {
           type: "Website",
-          href: "https://www.sayloai.com/",
+          href: "https://www.bilibili.com/video/BV1zh4y1V7Yj/?share_source=copy_web&vd_source=80bd0ad5f79db9d0fd91ca8f1c639ef2",
           icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
-      video:
-        RelatoDemo,
+      video: ArkalaVid,
     },
+
   ],
   hackathons: [
     {

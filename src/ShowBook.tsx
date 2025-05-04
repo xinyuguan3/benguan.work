@@ -34,7 +34,7 @@ const features = [
   {
     Icon: GitHubLogoIcon,
     name: "Code",
-    description: "Love exploring and building on github.",
+    description: "Love exploring and learn codes on github.",
     href: "/",
     cta: "Learn more",
     background: <GitHubCard />,
@@ -43,7 +43,7 @@ const features = [
   {
     Icon: RulerSquareIcon,
     name: "Designs",
-    description: "Done a lot of design work in my spare time.",
+    description: "Done some design work in my spare time, from gamejam to freelance.",
     href: "/",
     cta: "",
     background: <ShowArt/>,
@@ -52,7 +52,7 @@ const features = [
   { 
     Icon: BarChartIcon,
     name: "Skills",
-    description: "I write to clear my thoughts. Hoping it could share some value for you too",
+    description: "My main interest are visualizing the connections between human",
     href: "/",
     cta: "Learn more",
     background: <div className="flex flex-col gap-4"><SkillRadar/><IconCloudDemo/></div>,
@@ -61,7 +61,7 @@ const features = [
   {
     Icon: () => <img src="https://cdn.simpleicons.org/spotify" alt="Spotify" className="w-12 h-12" />,
     name: "Music List",
-    description: "Great taste in music. Well trained since childhood",
+    description: "Broad taste in music. Value the importance of sound in experience shaping.",
     href: "/",
     cta: "",
     background: <SpotifyPlayer />,
