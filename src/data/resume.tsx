@@ -240,7 +240,7 @@ export const DATA = {
     {
       title: "Relato",
       href: "https://llm.report",
-      dates: "April 2023 - September 2023",
+      dates: "April 2024 - May 2024",
       active: true,
       description:
         "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
@@ -273,7 +273,7 @@ export const DATA = {
     {
       title: "AI Story Generator",
       href: "https://www.bilibili.com/video/BV1zh4y1V7Yj/?spm_id_from=888.80997.embed_other.whitelist&t=5.319657&bvid=BV1zh4y1V7Yj&vd_source=a9ee34e95c1a809cca36a776e387600c",
-      dates: "April 2023 - March 2024",
+      dates: "April 2024 - May 2024",
       active: true,
       description:
         "Developed an AI Story Generator which simulates a small society and generates stories based on the user's input.",
