@@ -65,7 +65,7 @@ const IsometricContributions: React.FC<IsometricContributionsProps> = ({ contrib
 
       // 绘制贡献块
       let transformX = 0;
-      weeks.forEach((week, weekIndex) => {
+      weeks.forEach((week) => {
         const x = transformX / (OFFSET + 1);
         transformX += OFFSET + SIZE/2;  // 调整间距
 

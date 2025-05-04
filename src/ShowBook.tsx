@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+// import { cn } from "./lib/utils";
 import React, { useState, useRef } from 'react';
 import './ShowBook.css';
 import { Book } from './types';
@@ -6,7 +6,7 @@ import booksData from './data/books.json';
 import GitHubCard from './components/GitHubCard';
 import SpotifyPlayer from './components/SpotifyPlayer';
 import { IconCloud } from "./components/magicui/icon-cloud";
-import { AnimatePresence, motion } from "motion/react";
+// import { AnimatePresence, motion } from "motion/react";
 import { BlurFade } from "./components/magicui/blur-fade";
 import { ProjectCard } from "./components/project-card";
 import { DATA } from "./data/resume";
@@ -55,7 +55,7 @@ const features = [
     description: "I write to clear my thoughts. Hoping it could share some value for you too",
     href: "/",
     cta: "Learn more",
-    background: <SkillRadar/>,
+    background: <div className="flex flex-col gap-4"><SkillRadar/><IconCloudDemo/></div>,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   },
   {
@@ -99,7 +99,6 @@ const slugs = [
   "jira",
   "github",
   "django",
-  "postgresql",
   "redis",
   "visualstudiocode",
   "figma",
@@ -128,7 +127,7 @@ const techMapping = {
 
 const ShowBook = () => {
   const [selectedCategory, setSelectedCategory] = useState<Book['category']>('Finance');
-  const [hoveredBook, setHoveredBook] = useState<{ id: string; position: { x: number; y: number } } | null>(null);
+  // const [hoveredBook, setHoveredBook] = useState<{ id: string; position: { x: number; y: number } } | null>(null);
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [connectionPoints, setConnectionPoints] = useState<{ from: Point; to: Point[] } | null>(null);
   const iconCloudRef = useRef<HTMLDivElement>(null);
@@ -146,21 +145,21 @@ const ShowBook = () => {
     AI: books.filter(book => book.category === 'AI')
   };
 
-  const handleBookHover = (bookId: string, event: React.MouseEvent) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    setHoveredBook({
-      id: bookId,
-      position: {
-        x: rect.right + 20,
-        y: rect.top
-      }
-    });
-  };
+  // const handleBookHover = (bookId: string, event: React.MouseEvent) => {
+  //   const rect = event.currentTarget.getBoundingClientRect();
+  //   setHoveredBook({
+  //     id: bookId,
+  //     position: {
+  //       x: rect.right + 20,
+  //       y: rect.top
+  //     }
+  //   });
+  // };
 
 
-  const handleBookLeave = () => {
-    setHoveredBook(null);
-  };
+  // const handleBookLeave = () => {
+  //   setHoveredBook(null);
+  // };
 
   const handleFeatureHover = (feature: string, event: React.MouseEvent) => {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -356,8 +355,8 @@ const ShowBook = () => {
                   <div 
                     key={book.id} 
                     className="mobile-layout"
-                    onMouseEnter={(e) => handleBookHover(book.id, e)}
-                    onMouseLeave={handleBookLeave}
+                    // onMouseEnter={(e) => handleBookHover(book.id, e)}
+                    // onMouseLeave={handleBookLeave}
                   >
                     <div className="book-cover">
                       <img className="book-top" src={book.coverImage} alt={book.title} />

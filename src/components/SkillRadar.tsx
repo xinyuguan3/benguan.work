@@ -1,4 +1,4 @@
-import React from 'react';
+// import React from 'react';
 import {
   Chart as ChartJS,
   RadialLinearScale,
@@ -20,11 +20,11 @@ ChartJS.register(
 );
 
 const skillsData = {
-  labels: ['Gamification', 'Empathy', 'Product', 'Detail', 'Research', 'Coding'],
+  labels: ['Gamification', 'Empathy', 'Backend', 'Detail', 'Research', 'Frontend'],
   datasets: [
     {
       label: 'Skills',
-      data: [60, 85, 75, 68, 82, 62],
+      data: [90, 85, 47, 78, 82, 82],
       backgroundColor: 'rgba(18, 140, 59, 0.51)',
       borderColor: 'rgba(59, 199, 82, 0.92)',
       borderWidth: 1,
@@ -92,7 +92,7 @@ const options = {
 
 const SkillRadar = () => {
   return (
-    <div className="p-2" style={{ height: '520px' }}>
+    <div className="p-2" style={{ height: '220px' }}>
       <Radar data={skillsData} options={options} />
     </div>
   );

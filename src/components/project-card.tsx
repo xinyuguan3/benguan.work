@@ -6,7 +6,7 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
-import { cn } from "@/lib/utils";
+import { cn } from "../lib/utils";
 // import Image from "react-image-webp";
 // import { Link } from "react-router-dom";
 import Markdown from "react-markdown";

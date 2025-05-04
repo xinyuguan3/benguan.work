@@ -2,7 +2,7 @@
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Icons } from "../components/icons";
 import AgentSociety from "../assets/AgentSociety.mp4"
-
+import RelatoDemo from "../assets/RelatoDemo.mp4"
 export const DATA = {
   name: "GUAN Ben Xinyu(关新宇)",
   initials: "DV",
@@ -10,7 +10,7 @@ export const DATA = {
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "UI Designer turned Game Designer. I love building system generates interactive experiences. Very active on Unity.",
+    "UI Designer turned Game Designer. I love building system generates interactive experiences. Passionate about UI/UX design.",
   summary:
     "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
   avatarUrl: "./assets/profilepic.jpg",
@@ -211,7 +211,7 @@ export const DATA = {
       dates: "March 2024 - April 2025",
       active: true,
       description:
-        "Designed, developed and sold animated UI components for developers.",
+        "Designed, developed animated Webapp for Multi-Agent Framework Camel-AI.",
       technologies: [
         "Next.js",
         "Typescript",
@@ -238,7 +238,7 @@ export const DATA = {
       video: "https://cdn.magicui.design/bento-grid.mp4",
     },
     {
-      title: "llm.report",
+      title: "Relato",
       href: "https://llm.report",
       dates: "April 2023 - September 2023",
       active: true,
@@ -271,33 +271,27 @@ export const DATA = {
       video: "https://cdn.llm.report/openai-demo.mp4",
     },
     {
-      title: "Automatic Chat",
-      href: "https://automatic.chat",
+      title: "AI Story Generator",
+      href: "https://www.bilibili.com/video/BV1zh4y1V7Yj/?spm_id_from=888.80997.embed_other.whitelist&t=5.319657&bvid=BV1zh4y1V7Yj&vd_source=a9ee34e95c1a809cca36a776e387600c",
       dates: "April 2023 - March 2024",
       active: true,
       description:
-        "Developed an AI Customer Support Chatbot which automatically responds to customer support tickets using the latest GPT models.",
+        "Developed an AI Story Generator which simulates a small society and generates stories based on the user's input.",
       technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Shadcn UI",
-        "Magic UI",
-        "Stripe",
-        "Cloudflare Workers",
+        "Unity",
+        "C#",
+        "OpenAI",
       ],
       links: [
         {
           type: "Website",
-          href: "https://automatic.chat",
+          href: "https://www.sayloai.com/",
           icon: <Icons.globe className="size-3" />,
         },
       ],
       image: "",
       video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/automatic-chat.mp4",
+        RelatoDemo,
     },
   ],
   hackathons: [

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './GitHubCard.css';
 import IsometricContributions from './IsometricContributions';
 
