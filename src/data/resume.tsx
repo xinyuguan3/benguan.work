@@ -1,6 +1,7 @@
 
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Icons } from "../components/icons";
+import AgentSociety from "../assets/AgentSociety.mp4"
 
 export const DATA = {
   name: "GUAN Ben Xinyu(关新宇)",
@@ -181,9 +182,9 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Relato",
-      href: "https://relato.app",
-      dates: "Jan 2024 - Jun 2024",
+      title: "Agent Society",
+      href: "https://agentsociety.fiblab.net/exp/9feb9ea0-3dcd-4ed1-9348-0d26e43d0da6",
+      dates: "Feb 2025 - Jun 2025",
       active: true,
       description:
         "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
@@ -202,12 +203,12 @@ export const DATA = {
       ],
       image: "",
       video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
+        AgentSociety,
     },
     {
-      title: "Magic UI",
+      title: "Camel-AI",
       href: "https://magicui.design",
-      dates: "June 2023 - Present",
+      dates: "March 2024 - April 2025",
       active: true,
       description:
         "Designed, developed and sold animated UI components for developers.",

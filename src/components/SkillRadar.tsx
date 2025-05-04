@@ -92,7 +92,7 @@ const options = {
 
 const SkillRadar = () => {
   return (
-    <div className="w-full h-full flex items-center justify-center p-2" style={{ height: '220px' }}>
+    <div className="p-2" style={{ height: '520px' }}>
       <Radar data={skillsData} options={options} />
     </div>
   );

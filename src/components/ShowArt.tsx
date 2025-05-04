@@ -2,14 +2,22 @@ import { Marquee } from "./magicui/marquee";
 import WithinOneArm from "../assets/WithinOneArm.png";
 import WhoseWifeAnyway from "../assets/WhoseWifeAnyway.png";
 import NeonCthulhu from "../assets/NeonCthulhu.png";
+import SilkRoadStory from "../assets/SilkRoadStory.png"
+import EastVillage from "../assets/EastVillage.png"
+import BiologyGame from "../assets/BiologyGame.jpg"
+import BoschUX from "../assets/BoschUX.jpg"
+import BeyondTheBox from "../assets/BeyondTheBox.png"
 
 const artworks = [
-  { title: "Art Design", img: WithinOneArm },
-  { title: "Theatre Poster Design", img: WhoseWifeAnyway },
-  { title: "Game Poster Design", img: NeonCthulhu },
-  { title: "Art Design", img: "https://placehold.co/300x200?text=Art+4" },
-  { title: "作品5", img: "https://placehold.co/300x200?text=Art+5" },
-  { title: "作品6", img: "https://placehold.co/300x200?text=Art+6" },
+  { title: "Art Exhibition", img: WithinOneArm },
+  { title: "Automotive UX", img: BoschUX },
+  { title: "Theatre Poster", img: WhoseWifeAnyway },
+  { title: "VR Movie Poster", img: BeyondTheBox },
+  { title: "Sci-fi Game Concept", img: NeonCthulhu },
+  { title: "Detective Game UI", img: EastVillage},
+  { title: "Game Marketing Promo", img: SilkRoadStory },
+  { title: "UIUX Flow", img: BiologyGame },
+
 ];
 
 const firstRow = artworks.slice(0, artworks.length / 2);

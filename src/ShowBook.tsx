@@ -3,19 +3,14 @@ import React, { useState, useRef } from 'react';
 import './ShowBook.css';
 import { Book } from './types';
 import booksData from './data/books.json';
-import BookNotes from './components/BookNotes';
 import GitHubCard from './components/GitHubCard';
 import SpotifyPlayer from './components/SpotifyPlayer';
 import { IconCloud } from "./components/magicui/icon-cloud";
 import { AnimatePresence, motion } from "motion/react";
-import { CanvasRevealEffect } from "./components/ui/canvas-reveal-effect";
-import { FollowerPointerCard } from "./components/ui/following-pointer";
 import { BlurFade } from "./components/magicui/blur-fade";
 import { ProjectCard } from "./components/project-card";
 import { DATA } from "./data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
-import { InteractiveGridPattern } from "./components/magicui/interactive-grid-pattern";
-import { FlickeringGrid } from "./components/magicui/flickering-grid";
 import {
   RulerSquareIcon,
   GitHubLogoIcon,
@@ -48,7 +43,7 @@ const features = [
   {
     Icon: RulerSquareIcon,
     name: "Designs",
-    description: "Do a lot of design work. Love to design and build products.",
+    description: "Done a lot of design work in my spare time.",
     href: "/",
     cta: "",
     background: <ShowArt/>,
@@ -60,7 +55,7 @@ const features = [
     description: "I write to clear my thoughts. Hoping it could share some value for you too",
     href: "/",
     cta: "Learn more",
-    background: <div className="opacity-90"><SkillRadar/></div>,
+    background: <SkillRadar/>,
     className: "lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-2",
   },
   {
@@ -73,49 +68,6 @@ const features = [
     className: "lg:col-start-4 lg:col-end-5 lg:row-start-1 lg:row-end-2",
   }
 ];
-
-const Card = ({
-  title,
-  icon,
-  children,
-  }: {
-  title: string;
-  icon: React.ReactNode;
-  children?: React.ReactNode;
-  }) => {
-  const [hovered, setHovered] = React.useState(false);
-  return (
-  <div onMouseEnter={()=> setHovered(true)}
-    onMouseLeave={() => setHovered(false)}
-    className="border border-black/[0.2] group/canvas-card flex items-center justify-center dark:border-white/[0.2]
-    max-w-sm w-full mx-auto p-4 relative h-[30rem] relative"
-    >
-    <Icon className="absolute h-6 w-6 -top-3 -left-3 dark:text-white text-black" />
-    <Icon className="absolute h-6 w-6 -bottom-3 -left-3 dark:text-white text-black" />
-    <Icon className="absolute h-6 w-6 -top-3 -right-3 dark:text-white text-black" />
-    <Icon className="absolute h-6 w-6 -bottom-3 -right-3 dark:text-white text-black" />
-
-    <AnimatePresence>
-      {hovered && (
-      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="h-full w-full absolute inset-0">
-        {children}
-      </motion.div>
-      )}
-    </AnimatePresence>
-
-    <div className="relative z-20">
-      <div
-        className="text-center group-hover/canvas-card:-translate-y-4 group-hover/canvas-card:opacity-0 transition duration-200 w-full  mx-auto flex items-center justify-center">
-        {icon}
-      </div>
-      <h2
-        className="dark:text-white text-xl opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200">
-        {title}
-      </h2>
-    </div>
-  </div>
-  );
-  };
 
   export const Icon = ({ className, ...rest }: any) => {
   return (
@@ -327,7 +279,7 @@ const ShowBook = () => {
             </div>
           </BlurFade>
           <div className="w-full flex justify-center">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px]">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[600px] min-h-[800px]">
               {DATA.projects.map((project, id) => (
                 <BlurFade
                   key={project.title}
