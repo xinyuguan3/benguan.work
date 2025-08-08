@@ -1,0 +1,15 @@
+@keyframes breathe {
+  0% {
+    box-shadow: 0 0 10px 5px rgba(255, 166, 0, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px 15px rgba(255, 166, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px 5px rgba(255, 166, 0, 0.2);
+  }
+}
+
+.breathe-effect {
+  animation: breathe 4s ease-in-out infinite;
+} 

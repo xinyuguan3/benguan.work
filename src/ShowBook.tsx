@@ -23,6 +23,12 @@ import bookSideSvg from './assets/book-side.svg'
 import profilePic from './assets/profilepic.jpg';
 import SkillRadar from './components/SkillRadar';
 import { ShowArt } from './components/ShowArt';
+import ScrollCircle from './components/ScrollCircle';
+import WorksShowcase from './components/WorksShowcase';
+import { works } from './data/works';
+import DotPattern from './components/DotPattern';
+import { ThemeToggle } from './components/ThemeToggle';
+import AIExperience from './components/AIExperience';
 
 interface Point {
   x: number;
@@ -34,7 +40,7 @@ const features = [
   {
     Icon: GitHubLogoIcon,
     name: "Code",
-    description: "Love exploring and learn codes on github.",
+    description: "(Most of my uploads have to be private due to the company policy.) Love exploring and learn codes on github.",
     href: "/",
     cta: "Learn more",
     background: <GitHubCard />,
@@ -43,7 +49,7 @@ const features = [
   {
     Icon: RulerSquareIcon,
     name: "Designs",
-    description: "Done some design work in my spare time, from gamejam to freelance.",
+    description: "Love browsing on pinterest and dribbble, and find some sugar to steal.",
     href: "/",
     cta: "",
     background: <ShowArt/>,
@@ -52,7 +58,7 @@ const features = [
   { 
     Icon: BarChartIcon,
     name: "Skills",
-    description: "My main interest are visualizing the connections between human",
+    description: "Mainly develop frontend with react and vue",
     href: "/",
     cta: "Learn more",
     background: <div className="flex flex-col gap-4"><SkillRadar/><IconCloudDemo/></div>,
@@ -199,8 +205,45 @@ const ShowBook = () => {
     setConnectionPoints(null);
   };
 
+  // 添加平滑滚动功能
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <>
+      {/* <ScrollCircle 
+        color="#FFD955" 
+        endColor="#FFD955"
+        initialSize={3000} 
+        maxSize={1500} 
+        position="top-right" 
+      />
+      <ScrollCircle 
+        color="#55B1FF" 
+        endColor="#55B1FF"
+        initialSize={200} 
+        maxSize={2000} 
+        position="bottom-left" 
+      /> */}
+      
+      {/* 添加呼吸效果的点状纹理背景 */}
+      <DotPattern 
+        color="rgba(240, 242, 245, 0.5)" 
+        dotSize={2.5} 
+        spacing={15} 
+        opacity={0.5} 
+        breathingSpeed={15}
+        breathingIntensity={0.5}
+      />
+      
       {/* <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
     <InteractiveGridPattern
       width={40}
@@ -220,17 +263,22 @@ const ShowBook = () => {
           </div>
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6 gap-10">
-              <a href="#projects">Projects</a>
-              <a href="#books">Books</a>
+              {/* <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a> */}
+              <a href="#works" onClick={(e) => handleNavClick(e, 'works')}>Works</a>
+              <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
+              <a href="#ai-experience" onClick={(e) => handleNavClick(e, 'ai-experience')}>Agent</a>
+              <a href="#books" onClick={(e) => handleNavClick(e, 'books')}>Books</a>
+              <ThemeToggle />
               {/* <a href="#about">About</a> */}
             </nav>
+            
           </div>
         </div>
       </header>
 
     
       <section id="hero">
-      <div className="w-full flex justify-center">
+      <div className="w-full flex justify-center pt-16">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
@@ -258,7 +306,27 @@ const ShowBook = () => {
         </div>
       </div>
       </section>
-      <section id="projects">
+      
+      <section id="works" className="w-full min-h-screen">
+        <BlurFade delay={BLUR_FADE_DELAY * 10}>
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 pt-16 px-4 lg:px-16 xl:px-32 2xl:px-44">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                My Works
+              </div>
+              <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
+                My Works
+              </h2>
+              <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Here are some of my recent works.
+              </p>
+            </div>
+          </div>
+        </BlurFade>
+        <WorksShowcase works={works} />
+      </section>
+      
+      {/* <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -300,31 +368,69 @@ const ShowBook = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
       <div className="container max-w-[1920px] mx-auto justify-center">
-        
-        <div className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8">
-          
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">          
-
-            <BentoGrid className="lg:grid-rows-1 lg:grid-cols-4">
-              {features.map((feature) => (
-                <BentoCard 
-                  key={feature.name} 
-                  {...feature}
-                  onMouseEnter={(e) => handleFeatureHover(feature.name, e)}
-                  onMouseLeave={handleFeatureLeave}
-                />
-              ))}
-            </BentoGrid>
-            
+        <section id="skills" className="pt-16">
+        <BlurFade delay={0.1}>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
+          <div className="space-y-2">
+            <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+             Skills
+            </div>
+            <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
+              Skillset
+            </h2>
+            <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+              Taste and skills as a craftsman
+            </p>
           </div>
-          
         </div>
+      </BlurFade>
+          <div className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8 pt-16">
+            
+            <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">          
+
+              <BentoGrid className="lg:grid-rows-1 lg:grid-cols-4">
+                {features.map((feature) => (
+                  <BentoCard 
+                    key={feature.name} 
+                    {...feature}
+                    onMouseEnter={(e) => handleFeatureHover(feature.name, e)}
+                    onMouseLeave={handleFeatureLeave}
+                  />
+                ))}
+              </BentoGrid>
+            </div>
+          </div>
+        </section>
+
+        <section id="ai-experience" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4">
+          <AIExperience />
+        </section>
+        
         <section id="books" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4">
           <div className="w-full">
             <div className="m-auto">
-              <div className="flex items-end gap-6 justify-between flex-wrap-reverse lg:flex-nowrap">
+              
+            <BlurFade delay={0.1}>
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
+                <div className="space-y-2">
+                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                    Books
+                  </div>
+                  <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
+                    Booklist
+                  </h2>
+                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                  I have read {books.length}+ books over last five years. <br />
+                  Here are books I feel highly valuable!
+                  </p>
+                </div>
+              </div>
+            </BlurFade>
+
+              <div className="flex items-end gap-6 justify-between flex-wrap-reverse lg:flex-nowrap pt-20">
+                
                 <ul className="mt-5 gap-x-6 gap-y-3 flex cursor-pointer flex-wrap">
                   {Object.entries(booksByCategory).map(([category, books]) => (
                     <li key={category}>
@@ -344,11 +450,7 @@ const ShowBook = () => {
                     </li>
                   ))}
                 </ul>
-                <div className="w-full mt-2 lg:mt-[0px] max-w-md text-white-50 accentDarkBg rounded-3xl p-6">
-                  <div className="whitespace-nowrap text-orange-400 text-4xl mb-2 font-bold">Reading List</div>
-                  I have read {books.length}+ books over last five years. <br />
-                  Here are books I highly recommended!
-                </div>
+                
               </div>
               <div className="grid grid-cols-1 gap-18 mt-10 lg:grid-cols-2 lg:gap-16 xl:grid-cols-3 2xl:grid-cols-4">
                 {booksByCategory[selectedCategory].map((book) => (

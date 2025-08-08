@@ -11,9 +11,9 @@ interface GitHubStats {
   avatar_url: string;
   contributions?: {
     total: number;
-    last30Days: number;
-    contributions: Array<{
-      date: string;
+    last12Months: number;
+    monthlyContributions: Array<{
+      month: string;
       count: number;
     }>;
   };
@@ -23,11 +23,32 @@ const GitHubCard = () => {
   const [stats, setStats] = useState<GitHubStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [contributionGrid, setContributionGrid] = useState<Array<{count: number; date: string}>>([]);
+  const [contributionGrid, setContributionGrid] = useState<Array<{count: number; month: string}>>([]);
   const [show3D, setShow3D] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     fetchGitHubStats();
+    
+    // 检测深色模式
+    const checkDarkMode = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+    
+    checkDarkMode();
+    
+    // 监听深色模式变化
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class') {
+          checkDarkMode();
+        }
+      });
+    });
+    
+    observer.observe(document.documentElement, { attributes: true });
+    
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -47,46 +68,51 @@ const GitHubCard = () => {
       if (!contributionsResponse.ok) throw new Error('Failed to fetch contributions');
       const contributionsData = await contributionsResponse.json();
 
-      // 获取最近30天的日期范围
+      // 获取最近12个月的日期范围
       const today = new Date();
-      const thirtyDaysAgo = new Date(today);
-      thirtyDaysAgo.setDate(today.getDate() - 29); // -29 是因为要包含今天
+      const twelveMonthsAgo = new Date(today);
+      twelveMonthsAgo.setMonth(today.getMonth() - 11); // -11 是因为要包含当月
 
       // 处理贡献数据
-      const contributions = (contributionsData.contributions || []).reverse(); // 反转数组使其按时间升序
-      const last30Days = Array.from({ length: 30 }, (_, index) => {
-        const date = new Date(thirtyDaysAgo);
-        date.setDate(date.getDate() + index);
-        const dateStr = date.toISOString().split('T')[0];
+      const contributions = contributionsData.contributions || [];
+      
+      // 按月统计贡献
+      const monthlyContributions = [];
+      for (let i = 0; i < 12; i++) {
+        const monthDate = new Date(twelveMonthsAgo);
+        monthDate.setMonth(twelveMonthsAgo.getMonth() + i);
         
-        // 查找对应日期的贡献
-        const contribution = contributions.find((c: any) => {
+        const year = monthDate.getFullYear();
+        const month = monthDate.getMonth();
+        
+        // 计算当月贡献
+        const monthContributions = contributions.filter((c: any) => {
           const contribDate = new Date(c.date);
-          const targetDate = new Date(dateStr);
-          return contribDate.getFullYear() === targetDate.getFullYear() &&
-                 contribDate.getMonth() === targetDate.getMonth() &&
-                 contribDate.getDate() === targetDate.getDate();
+          return contribDate.getFullYear() === year && contribDate.getMonth() === month;
         });
+        
+        const monthCount = monthContributions.reduce((sum: number, day: any) => sum + (parseInt(day.count) || 0), 0);
+        
+        const monthName = monthDate.toLocaleDateString('zh-CN', { month: 'short' });
+        monthlyContributions.push({
+          month: monthName,
+          count: monthCount
+        });
+      }
 
-        return {
-          date: dateStr,
-          count: contribution ? parseInt(contribution.count) || 0 : 0
-        };
-      });
+      // 计算最近12个月的总贡献数
+      const last12MonthsTotal = monthlyContributions.reduce((sum, month) => sum + month.count, 0);
 
-      // 计算最近30天的总贡献数
-      const last30DaysTotal = last30Days.reduce((sum, day) => sum + day.count, 0);
+      console.log('Monthly contributions:', monthlyContributions);
+      console.log('Last 12 months total:', last12MonthsTotal);
 
-      console.log('Last 30 days contributions:', last30Days);
-      console.log('Last 30 days total:', last30DaysTotal);
-
-      setContributionGrid(last30Days);
+      setContributionGrid(monthlyContributions);
       setStats({
         ...data,
         contributions: {
           total: contributions.reduce((sum: number, day: any) => sum + (parseInt(day.count) || 0), 0),
-          last30Days: last30DaysTotal,
-          contributions: last30Days
+          last12Months: last12MonthsTotal,
+          monthlyContributions: monthlyContributions
         }
       });
     } catch (err) {
@@ -98,20 +124,12 @@ const GitHubCard = () => {
   };
 
   const getContributionColor = (count: number) => {
+    // 调整颜色阈值以适应月度贡献
     if (count === 0) return 'var(--contribution-0)';
-    if (count === 1) return 'var(--contribution-1)';
-    if (count === 2) return 'var(--contribution-2)';
-    if (count === 3) return 'var(--contribution-3)';
+    if (count <= 10) return 'var(--contribution-1)';
+    if (count <= 30) return 'var(--contribution-2)';
+    if (count <= 60) return 'var(--contribution-3)';
     return 'var(--contribution-4)';
-  };
-
-  const formatDate = (dateStr: string) => {
-    if (!dateStr) return '';
-    const date = new Date(dateStr);
-    return date.toLocaleDateString('zh-CN', {
-      month: 'numeric',
-      day: 'numeric'
-    });
   };
 
   if (loading) return <div className="github-loading">加载中...</div>;
@@ -145,7 +163,7 @@ const GitHubCard = () => {
       </div> */}
 
       <div className="github-contributions">
-        <h3>Recent 30 Days Contributions</h3>
+        <h3>Recent 12 Months Contributions</h3>
         <div className="contributions-view-toggle">
           <button 
             className={`view-button ${!show3D ? 'active' : ''}`}
@@ -154,7 +172,6 @@ const GitHubCard = () => {
               setShow3D(false);
             }}
           >
-
             2D
           </button>
           <button 
@@ -168,24 +185,46 @@ const GitHubCard = () => {
         </div>
         
         {show3D ? (
-          <IsometricContributions contributions={contributionGrid} />
+          <IsometricContributions contributions={contributionGrid.map(item => ({
+            month: item.month,
+            count: item.count
+          }))} />
         ) : (
           <>
-            <div className="contributions-graph">
-              {contributionGrid.map((day, index) => (
+            <div className="monthly-contributions-graph">
+              {contributionGrid.map((month, index) => (
                 <div
                   key={index}
-                  className="contribution-day"
-                  style={{ backgroundColor: getContributionColor(day.count) }}
-                  title={`${formatDate(day.date)} - ${day.count} contributions`}
-                />
+                  className="contribution-month"
+                  style={{ backgroundColor: getContributionColor(month.count) }}
+                  title={`${month.month} - ${month.count} contributions`}
+                >
+                  <span 
+                    className="month-label"
+                    style={{ 
+                      color: isDarkMode && month.count <= 10 ? 'rgba(255, 255, 255, 0.9)' : 'var(--background)',
+                      textShadow: isDarkMode && month.count <= 10 ? 'none' : '0 0 2px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    {month.month}
+                  </span>
+                  <span 
+                    className="month-count"
+                    style={{ 
+                      color: isDarkMode && month.count <= 10 ? 'rgba(255, 255, 255, 0.9)' : 'var(--background)',
+                      textShadow: isDarkMode && month.count <= 10 ? 'none' : '0 0 2px rgba(0, 0, 0, 0.3)'
+                    }}
+                  >
+                    {month.count}
+                  </span>
+                </div>
               ))}
             </div>
           </>
         )}
         
         <div className="contributions-count">
-          {stats.contributions?.last30Days || 0} contributions (last 30 days)
+          {stats.contributions?.last12Months || 0} contributions (last 12 months)
         </div>
       </div>
     </div>

@@ -1,0 +1,456 @@
+.works-showcase-container {
+  width: 100%;
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  will-change: contents;
+}
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.background-image.active {
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.background-image.fade-out {
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 0.2s ease;
+}
+
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+  z-index: 2;
+}
+
+.works-showcase {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 10;
+  transition: filter 0.2s ease;
+  will-change: contents;
+}
+
+/* 当显示项目详情时，作品栏变暗 */
+.works-showcase-container.showing-details .works-showcase {
+  /* filter: brightness(0.3) blur(2px); */
+}
+
+.work-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  will-change: background-color, transform;
+}
+
+.work-item:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.work-item:hover .work-title {
+  transform: translateX(10px);
+  /* color: #FFD955; */
+}
+
+/* 选中的作品栏样式 */
+.work-item.hovered {
+  background-color: rgba(255, 255, 255, 0);
+  box-shadow: 0 0 15px rgba(255, 217, 85, 0.2);
+  border-left: 4px solid #FFD955;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-item.hovered::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background-color: rgba(255, 255, 255, 0.724);
+  transform: translateY(-50%);
+  z-index: 1;
+  pointer-events: none;
+  animation: expand-vertical 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  will-change: height;
+}
+
+@keyframes expand-vertical {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+/* 确保内容在动画上层 */
+.work-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+.work-item.hovered .work-number {
+  color: #FFD955;
+  transition: color 0.15s ease;
+}
+
+.work-item.hovered .work-title {
+  color: #000000;
+  transform: translateX(10px);
+  transition: all 0.15s ease;
+}
+
+.work-item.hovered .work-subtitle {
+  color: rgba(0, 0, 0, 0.7);
+  transition: color 0.15s ease;
+}
+
+.work-item.hovered .work-date {
+  color: rgba(0, 0, 0, 0.7);
+  transition: color 0.15s ease;
+}
+
+.work-item.hovered .work-arrow {
+  color: #000000;
+  transition: color 0.15s ease;
+}
+
+.work-number {
+  font-size: 6rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.1);
+  width: 120px;
+  line-height: 1;
+  transition: color 0.2s ease;
+  will-change: color;
+}
+
+.work-content {
+  flex: 1;
+  padding: 0 2rem;
+}
+
+.work-title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+  transition: all 0.2s ease;
+  will-change: transform, color;
+}
+
+.work-subtitle {
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+  color: rgba(255, 255, 255, 0.6);
+  transition: color 0.2s ease;
+}
+
+.work-date {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  width: 100px;
+  text-align: right;
+  transition: color 0.2s ease;
+}
+
+.work-arrow {
+  opacity: 0;
+  width: 40px;
+  color: #FFD955;
+  transform: translateX(-20px);
+  transition: all 0.2s ease;
+  will-change: opacity, transform;
+}
+
+.work-item:hover .work-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.work-item.hovered .work-arrow {
+  color: #000000;
+}
+
+/* 详情卡片容器 */
+.work-details-container {
+  position: fixed;
+  top: 0;
+  right: 0; /* 改为右侧 */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end; /* 靠右对齐 */
+  align-items: center;
+  pointer-events: none;
+  z-index: 20;
+  padding: 0;
+  animation: fadeIn 0.2s ease forwards;
+  will-change: opacity;
+}
+
+.work-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2rem;
+  margin-right: 5rem; /* 右侧边距 */
+  max-width: 500px;
+}
+
+/* 图片卡片 */
+.work-image-card {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.3s ease forwards;
+  will-change: transform, opacity;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.work-image-card img,
+.work-image-card video {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  display: block;
+  will-change: transform;
+}
+
+.work-image-card:hover img,
+.work-image-card:hover video {
+  transform: scale(1.05);
+}
+
+/* 媒体导航点样式 */
+.media-nav {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.media-nav-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.media-nav-dot:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.media-nav-dot.active {
+  background-color: #FFD955;
+  transform: scale(1.2);
+}
+
+/* 信息卡片 */
+.work-info-card {
+  width: 100%;
+  color: #fff;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 0.3s ease 0.1s forwards;
+  will-change: transform, opacity;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1.5rem;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.work-info-card h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  background: linear-gradient(to right, #fff, #FFD955);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.work-info-card p {
+  font-size: 1.2rem;
+  margin: 0 0 2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.view-project {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 2px solid #FFD955;
+  color: #FFD955;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.view-project:hover {
+  background-color: #FFD955;
+  color: #000;
+}
+
+/* 媒体切换动画 */
+@keyframes fadeMedia {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* 淡入淡出动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 卡片淡出动画 */
+.work-image-card.fade-out,
+.work-info-card.fade-out {
+  animation: fadeOut 0.2s ease forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+@media (max-width: 1024px) {
+  .work-card-wrapper {
+    margin: 1rem;
+    margin-right: 3rem;
+    max-width: 400px;
+  }
+
+  .work-image-card {
+    max-width: 400px;
+  }
+
+  .work-info-card h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-item {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+  }
+  
+  .work-number {
+    font-size: 3rem;
+    width: auto;
+    margin-bottom: 0.5rem;
+  }
+  
+  .work-content {
+    padding: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .work-title {
+    font-size: 2rem;
+  }
+  
+  .work-date {
+    width: auto;
+    text-align: left;
+  }
+  
+  .work-arrow {
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+  }
+  
+  .work-item:hover .work-arrow {
+    opacity: 1;
+  }
+  
+  .work-details-container {
+    display: none;
+  }
+} 

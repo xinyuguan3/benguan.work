@@ -11,8 +11,8 @@
     --separator-height: 500px;
     
     --bg: #fdf3f2;
-    --mobile-bg: #1d1414;
-    --intro-bg: #372420;
+    --mobile-bg: #1a1a1a;
+    --intro-bg: #000000;
     --font-color: #393636;
     
     --transition: transform 0.7s ease-in-out;
@@ -200,6 +200,23 @@
 
   header a:hover {
     color: rgba(0, 0, 0, 0.7);
+  }
+
+  .dark header {
+    background: rgba(0, 0, 0, 0.75) !important;
+    border-bottom: 1px solid rgba(50, 50, 50, 0.5);
+  }
+
+  .dark header a {
+    color: #ffffff;
+  }
+
+  .dark header a:hover {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .dark header span {
+    color: #ffffff;
   }
 
   @media (prefers-color-scheme: dark) {

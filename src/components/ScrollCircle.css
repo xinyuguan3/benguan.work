@@ -1,0 +1,28 @@
+.scroll-circle {
+  position: fixed;
+  border-radius: 50%;
+  z-index: -10;
+  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              height 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              background-color 0.6s ease-out,
+              opacity 0.6s ease-out;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  filter: blur(5px);
+  will-change: width, height, background-color, opacity;
+}
+
+/* 暗色模式下调整混合模式 */
+@media (prefers-color-scheme: dark) {
+  .scroll-circle {
+    mix-blend-mode: screen;
+    opacity: 0.5;
+  }
+}
+
+/* 减少动画，提高性能 */
+@media (prefers-reduced-motion) {
+  .scroll-circle {
+    transition: none;
+  }
+} 

@@ -4,7 +4,7 @@ import './IsometricContributions.css';
 
 interface IsometricContributionsProps {
   contributions: Array<{
-    date: string;
+    month: string;
     count: number;
   }>;
 }
@@ -27,8 +27,8 @@ const IsometricContributions: React.FC<IsometricContributionsProps> = ({ contrib
     try {
       const canvas = canvasRef.current;
       // 增加画布宽度以容纳所有方块
-      const CANVAS_WIDTH = 300;
-      const CANVAS_HEIGHT = 200;
+      const CANVAS_WIDTH = 400;
+      const CANVAS_HEIGHT = 250;
       canvas.width = CANVAS_WIDTH;
       canvas.height = CANVAS_HEIGHT;
 
@@ -40,15 +40,15 @@ const IsometricContributions: React.FC<IsometricContributionsProps> = ({ contrib
       });
 
       // 计算最大贡献数，用于高度缩放
-      const maxCount = Math.max(...contributions.map(day => day.count));
+      const maxCount = Math.max(...contributions.map(month => month.count));
       
       // 保持方块大小，调整其他参数
-      const SIZE = 20;  // 方块基础大小
-      const MAX_HEIGHT = 80;  // 最大高度
-      const OFFSET = 10;  // 稍微增加间距
+      const SIZE = 18;  // 方块基础大小
+      const MAX_HEIGHT = 60;  // 最大高度
+      const OFFSET = 12;  // 稍微增加间距
       
       // 将视图原点移到更左侧的位置
-      const point = new obelisk.Point(120, 80);
+      const point = new obelisk.Point(150, 120);
       const pixelView = new obelisk.PixelView(canvas, point);
 
       // 清除画布
@@ -57,51 +57,48 @@ const IsometricContributions: React.FC<IsometricContributionsProps> = ({ contrib
         ctx.clearRect(0, 0, canvas.width, canvas.height);
       }
 
-      // 按周分组
-      const weeks: Array<Array<{date: string; count: number}>> = [];
-      for (let i = 0; i < contributions.length; i += 7) {
-        weeks.push(contributions.slice(i, i + 7));
-      }
+      // 按4x3网格布局排列月份
+      const rows = 3;
+      const cols = 4;
+      
+      contributions.forEach((month, index) => {
+        // 计算网格位置
+        const col = index % cols;
+        const row = Math.floor(index / cols);
+        
+        // 计算方块高度
+        let cubeHeight = 4;  // 最小高度
+        if (maxCount > 0) {
+          cubeHeight += Math.floor((MAX_HEIGHT / maxCount) * month.count);
+        }
 
-      // 绘制贡献块
-      let transformX = 0;
-      weeks.forEach((week) => {
-        const x = transformX / (OFFSET + 1);
-        transformX += OFFSET + SIZE/2;  // 调整间距
+        // 创建方块
+        const dimension = new obelisk.CubeDimension(SIZE, SIZE, cubeHeight);
+        
+        // 设置颜色
+        let color;
+        if (month.count === 0) {
+          color = new obelisk.CubeColor().getByHorizontalColor(0xebedf0);
+        } else if (month.count <= 10) {
+          color = new obelisk.CubeColor().getByHorizontalColor(0x9be9a8);
+        } else if (month.count <= 30) {
+          color = new obelisk.CubeColor().getByHorizontalColor(0x40c463);
+        } else if (month.count <= 60) {
+          color = new obelisk.CubeColor().getByHorizontalColor(0x30a14e);
+        } else {
+          color = new obelisk.CubeColor().getByHorizontalColor(0x216e39);
+        }
 
-        week.forEach((day, dayIndex) => {
-          const y = dayIndex;
-          
-          // 计算方块高度
-          let cubeHeight = 4;  // 最小高度
-          if (maxCount > 0) {
-            cubeHeight += Math.floor((MAX_HEIGHT / maxCount) * day.count);
-          }
-
-          // 创建方块
-          const dimension = new obelisk.CubeDimension(SIZE, SIZE, cubeHeight);
-          
-          // 设置颜色
-          let color;
-          if (day.count === 0) {
-            color = new obelisk.CubeColor().getByHorizontalColor(0xebedf0);
-          } else if (day.count <= 1) {
-            color = new obelisk.CubeColor().getByHorizontalColor(0x9be9a8);
-          } else if (day.count <= 2) {
-            color = new obelisk.CubeColor().getByHorizontalColor(0x40c463);
-          } else if (day.count <= 4) {
-            color = new obelisk.CubeColor().getByHorizontalColor(0x30a14e);
-          } else {
-            color = new obelisk.CubeColor().getByHorizontalColor(0x216e39);
-          }
-
-          // 创建方块并设置位置
-          const cube = new obelisk.Cube(dimension, color, false);
-          const p3d = new obelisk.Point3D(SIZE * x, SIZE * y, 0);
-          
-          // 渲染方块
-          pixelView.renderObject(cube, p3d);
-        });
+        // 创建方块并设置位置
+        const cube = new obelisk.Cube(dimension, color, false);
+        const p3d = new obelisk.Point3D(
+          (SIZE + OFFSET) * col, 
+          (SIZE + OFFSET) * row, 
+          0
+        );
+        
+        // 渲染方块
+        pixelView.renderObject(cube, p3d);
       });
 
     } catch (error) {
@@ -117,7 +114,7 @@ const IsometricContributions: React.FC<IsometricContributionsProps> = ({ contrib
           display: 'block',
           width: '100%',
           maxWidth: '720px',
-          height: '92px',  // 稍微增加高度
+          height: '180px',  // 增加高度以适应3行
           margin: '0 auto',
           backgroundColor: 'var(--contribution-bg, #ffffff)',
           imageRendering: 'pixelated',
