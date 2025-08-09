@@ -8,7 +8,7 @@ import SpotifyPlayer from './components/SpotifyPlayer';
 import { IconCloud } from "./components/magicui/icon-cloud";
 // import { AnimatePresence, motion } from "motion/react";
 import { BlurFade } from "./components/magicui/blur-fade";
-import { ProjectCard } from "./components/project-card";
+// import { ProjectCard } from "./components/project-card";
 import { DATA } from "./data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 import {
@@ -23,7 +23,7 @@ import bookSideSvg from './assets/book-side.svg'
 import profilePic from './assets/profilepic.jpg';
 import SkillRadar from './components/SkillRadar';
 import { ShowArt } from './components/ShowArt';
-import ScrollCircle from './components/ScrollCircle';
+// import ScrollCircle from './components/ScrollCircle';
 import WorksShowcase from './components/WorksShowcase';
 import { works } from './data/works';
 import DotPattern from './components/DotPattern';

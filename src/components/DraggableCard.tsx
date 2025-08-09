@@ -15,13 +15,13 @@ export interface IdeaCardProps {
 }
 
 const IdeaCard: React.FC<IdeaCardProps> = ({ 
-  id, 
+  // id, 
   title, 
   description, 
   icon,
   color = 'text-white',
-  gradientFrom = 'from-primary',
-  gradientTo = 'to-primary/50',
+  // gradientFrom = 'from-primary',
+  // gradientTo = 'to-primary/50',
   bgColor = 'bg-primary',
   textColor = 'text-white',
   onClick

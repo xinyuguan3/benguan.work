@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { BlurFade } from "./magicui/blur-fade";
+// import { BlurFade } from "./magicui/blur-fade";
 import profilePic from '../assets/profilepic.jpg';
 import './breathe-effect.css'; // 引入CSS动画文件
 
@@ -59,7 +59,7 @@ const AIChat: React.FC<AIProps> = ({ initialPrompt }) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [systemPrompt, setSystemPrompt] = useState(DEFAULT_SYSTEM_PROMPT);
+  const [systemPrompt] = useState(DEFAULT_SYSTEM_PROMPT);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 

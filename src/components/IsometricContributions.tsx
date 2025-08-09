@@ -58,7 +58,7 @@ const IsometricContributions: React.FC<IsometricContributionsProps> = ({ contrib
       }
 
       // 按4x3网格布局排列月份
-      const rows = 3;
+      // const rows = 3;
       const cols = 4;
       
       contributions.forEach((month, index) => {
