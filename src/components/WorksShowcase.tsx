@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './WorksShowcase.css';
 
 interface Work {
@@ -24,13 +25,14 @@ interface WorksShowcaseProps {
 }
 
 const WorksShowcase: React.FC<WorksShowcaseProps> = ({ works }) => {
+  const navigate = useNavigate();
   const [hoveredWork, setHoveredWork] = useState<string | null>(null);
   const [previousWork, setPreviousWork] = useState<string | null>(null);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
-  
+
   const imageCardRef = useRef<HTMLDivElement>(null);
   const infoCardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -130,8 +132,8 @@ const WorksShowcase: React.FC<WorksShowcaseProps> = ({ works }) => {
 
   const handleWorkClick = (workId: string) => {
     console.log(`Work ${workId} clicked`);
-    // 这里可以添加导航到作品详情页的逻辑
-    // 例如: navigate(`/works/${workId}`);
+    // 导航到作品详情页面
+    navigate(`/work/${workId}`);
   };
 
   // 找到当前悬停的作品
@@ -228,6 +230,7 @@ const WorksShowcase: React.FC<WorksShowcaseProps> = ({ works }) => {
               <p className="work-subtitle">+ {work.subtitle} +</p>
             </div>
             <div className="work-date">{work.date}</div>
+            <div className="work-reading-time">{work.readingTime} min read</div>
             <div className="work-arrow">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>

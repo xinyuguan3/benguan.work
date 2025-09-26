@@ -264,14 +264,15 @@ const ShowBook = () => {
           <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
             <nav className="flex items-center space-x-6 gap-10">
               {/* <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a> */}
+              
               <a href="#works" onClick={(e) => handleNavClick(e, 'works')}>Works</a>
               <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
               <a href="#ai-experience" onClick={(e) => handleNavClick(e, 'ai-experience')}>Agent</a>
               <a href="#books" onClick={(e) => handleNavClick(e, 'books')}>Books</a>
+              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Portfolio</a>
               <ThemeToggle />
               {/* <a href="#about">About</a> */}
-            </nav>
-            
+            </nav>            
           </div>
         </div>
       </header>
@@ -286,7 +287,7 @@ const ShowBook = () => {
                 delay={BLUR_FADE_DELAY}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 offset={8} inView>
-                <h2>Hi, I'm {DATA.name.split(" ")[0]} 👋</h2>
+                <h2>I'm Ben</h2>
               </BlurFade>
               
               <BlurFade
