@@ -18,6 +18,7 @@ interface Work {
     bottom?: string;
     left?: string;
   };
+  readingTime: number;
 }
 
 interface WorksShowcaseProps {
