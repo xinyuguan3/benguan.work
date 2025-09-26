@@ -19,6 +19,16 @@ interface Work {
     left?: string;
   };
   readingTime: number;
+  portfolio: {
+    type: 'text' | 'image' | 'video' | 'mixed';
+    content: string;
+    caption?: string;
+    media?: {
+      type: 'image' | 'video';
+      src: string;
+      caption?: string;
+    };
+  }[];
 }
 
 interface WorksShowcaseProps {
