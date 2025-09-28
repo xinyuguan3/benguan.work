@@ -1,5 +1,5 @@
 // import { cn } from "./lib/utils";
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './ShowBook.css';
 import { Book } from './types';
 import booksData from './data/books.json';
@@ -137,6 +137,16 @@ const ShowBook = () => {
   const [hoveredFeature, setHoveredFeature] = useState<string | null>(null);
   const [connectionPoints, setConnectionPoints] = useState<{ from: Point; to: Point[] } | null>(null);
   const iconCloudRef = useRef<HTMLDivElement>(null);
+
+  // 页面加载时如果在主页，则滚动到顶部
+  useEffect(() => {
+    if (window.location.pathname === '/' && window.location.hash === '') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'instant'
+      });
+    }
+  }, []);
 
   const books = booksData.books.map(book => ({
     ...book,

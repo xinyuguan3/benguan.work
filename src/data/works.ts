@@ -67,11 +67,11 @@ export const works: Work[] = [
       },
       {
         type: 'mixed',
-        content: "## Uncharted Territory\n\nAfter spending years in the banking sector, I felt it was time to shake things up. So, I took on a six-month contract with a proptech company—my first venture into this industry.\n\nThis role wasn't just about bringing my existing skills to the table; it was about diving headfirst into a new domain and making a meaningful impact in a short period.",
+        content: "## Uncharted Territory\n\nduring my time in Hong Kong, I joined a research project at Media Lab Toronto.\n\nThis role wasn't just about bringing my existing skills to the table; it was about diving headfirst into a domain which I was always interested in and making a meaningful impact in a short period.",
         media: {
           type: 'image',
           src: CommunityData,
-          caption: "Property analytics dashboard showcasing data visualisation"
+          caption: "Smart City project showcasing data visualisation"
         }
       },
       {
@@ -80,11 +80,11 @@ export const works: Work[] = [
       },
       {
         type: 'mixed',
-        content: "## The Challenge\n\nAs the only UX designer for the entire product, I found myself simultaneously working on four projects:\n\n• Leasing Data Project\n• Charts and Table Enhancement\n• Retail Experience Enhancements\n• Process and Ways of Working Recommendation\n\nEach project had its own challenges, stakeholders, and tight deadlines. The pressure was on to deliver top-notch work across the board while getting up to speed with the ins and outs of the commercial real estate industry.",
+        content: "## The Challenge\n\nAs the only UX designer for the entire project, I found myself simultaneously working on four projects:\n\n• Leasing Data Project\n• Charts and Table Enhancement\n• Retail Experience Enhancements\n• Process and Ways of Working Recommendation\n\nEach project had its own challenges, stakeholders, and tight deadlines. The pressure was on to deliver top-notch work across the board while getting up to speed with the ins and outs of the academic research industry.",
         media: {
           type: 'image',
           src: CommunityCompare,
-          caption: "Comparative analysis showing property market insights"
+          caption: "Comparative analysis showing academic research insights"
         }
       },
       {
