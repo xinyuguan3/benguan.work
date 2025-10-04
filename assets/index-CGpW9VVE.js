@@ -342,7 +342,7 @@ Users can monitor simulation results in real-time with interactive visualization
 
 ### Predictive Scenario Generation
 
-Once trained on real data, the system generates predictive scenarios for social phenomena like viral spread, opinion formation, or community conflicts.`,media:{type:"image",src:"https://source.unsplash.com/random/600x400?network,visualization&sig=42",caption:"Oasis simulation dashboard showing social network dynamics"}},{type:"text",content:`## Research Applications
+Once trained on real data, the system generates predictive scenarios for social phenomena like viral spread, opinion formation, or community conflicts.`,media:{type:"video",src:"https://source.unsplash.com/random/600x400?network,visualization&sig=42",caption:"Oasis simulation dashboard showing social network dynamics"}},{type:"text",content:`## Research Applications
 
 **Social Science Research:** Study complex social phenomena in controlled environments
 
@@ -352,7 +352,7 @@ Once trained on real data, the system generates predictive scenarios for social 
 
 **Crisis Management:** Model social responses to emergencies and disasters
 
-**Community Building:** Optimize strategies for online community engagement`}]},{id:"05",title:"Relato",subtitle:"AI-powered communication intelligence for professional messaging",date:"2025.5",backgroundImage:"https://source.unsplash.com/random/1920x1080?communication,tech&sig=5",cardMedia:[{type:"image",src:HC},{type:"image",src:UC}],position:{bottom:"20%",left:"10%"},readingTime:8,portfolio:[{type:"text",content:"Relato is a desktop plugin and mobile keyboard that enables working professionals to become more emotionally intelligent communicators on digital messaging platforms, by offering them alternative suggestions and feedback to reduce the ambiguity of intent and tone in messages."},{type:"mixed",content:`## The Challenge
+**Community Building:** Optimize strategies for online community engagement`}]},{id:"05",title:"Relato",subtitle:"AI-powered communication intelligence for professional messaging",date:"2025.5",backgroundImage:"https://source.unsplash.com/random/1920x1080?communication,tech&sig=5",cardMedia:[{type:"video",src:HC},{type:"image",src:UC}],position:{bottom:"20%",left:"10%"},readingTime:8,portfolio:[{type:"text",content:"Relato is a desktop plugin and mobile keyboard that enables working professionals to become more emotionally intelligent communicators on digital messaging platforms, by offering them alternative suggestions and feedback to reduce the ambiguity of intent and tone in messages."},{type:"mixed",content:`## The Challenge
 
 Digital written communication at work often suffers from several critical limitations:
 
@@ -363,7 +363,7 @@ Digital written communication at work often suffers from several critical limita
 
 The lack of emotional intelligence—the capacity to be aware of, control, and express one's emotions, and to handle interpersonal relationships judiciously and empathetically—over digital written communication platforms at work can lead to increased instances of miscommunication and misinterpretation of one's message.
 
-*How might we help professionals communicate more effectively and empathetically in digital environments?*`,media:{type:"image",src:HC,caption:"Analysis of communication challenges in digital workplaces"}},{type:"text",content:`## The Solution
+*How might we help professionals communicate more effectively and empathetically in digital environments?*`,media:{type:"video",src:HC,caption:"Analysis of communication challenges in digital workplaces"}},{type:"text",content:`## The Solution
 
 Relato is a comprehensive communication intelligence gaming platform that analyzes message personality, provides writing suggestions, and tracks communication improvement over time. By understanding both the sender's intent and the recipient's context, Relato helps bridge the emotional gap in digital communication.`},{type:"mixed",content:`## Key Features
 
@@ -393,7 +393,7 @@ While digital media consumption may increase intellectual development in young c
 
 These findings really concerned us as interaction designers and creators of screen-based media, about where our future generation is heading. This was the common thread that got us all together to reimagine the future of socializing, bonding and learning through technology.
 
-*How might we create technology that enhances rather than diminishes children's social and emotional development?*`,media:{type:"image",src:WC,caption:"Children engaging with traditional vs digital learning experiences"}},{type:"text",content:`## The Solution
+*How might we create technology that enhances rather than diminishes children's social and emotional development?*`,media:{type:"video",src:WC,caption:"Children engaging with traditional vs digital learning experiences"}},{type:"text",content:`## The Solution
 
 Arkala bridges the gap between digital and physical learning by creating interactive tools that encourage children to engage with physical objects while leveraging digital technology. Our approach focuses on collaborative learning experiences that build social skills alongside intellectual development.`},{type:"mixed",content:`## Key Features
 
