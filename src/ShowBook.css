@@ -5,17 +5,26 @@
   }
   
   :root {
-    --mobile-width: 300px;
-    --mobile-height: 650px;
-    --mobile-radius: 25px;
-    --separator-height: 500px;
-    
+    --mobile-width: 240px;
+    --mobile-height: 520px;
+    --mobile-radius: 20px;
+    --separator-height: 400px;
+
     --bg: #fdf3f2;
     --mobile-bg: #1a1a1a;
     --intro-bg: #000000;
     --font-color: #393636;
-    
+
     --transition: transform 0.7s ease-in-out;
+  }
+
+  @media (min-width: 768px) {
+    :root {
+      --mobile-width: 300px;
+      --mobile-height: 650px;
+      --mobile-radius: 25px;
+      --separator-height: 500px;
+    }
   }
   
   .container {
@@ -107,37 +116,63 @@
   .mobile-layout:hover .book-cover {
     transform: rotateX(75deg) translateZ(3px) scale(0.75);
   }
-  
+
   .mobile-layout:hover .preface {
-    transform: translateY(-302px);
+    transform: translateY(-242px);
   }
-  
+
+  @media (min-width: 768px) {
+    .mobile-layout:hover .preface {
+      transform: translateY(-302px);
+    }
+  }
+
   .mobile-layout:hover .preface .icon {
     transform: rotateX(180deg);
   }
   
   .book-top {
-    width: 170px;
-    height: 250px;
+    width: 136px;
+    height: 200px;
     position: absolute;
-    top: 60px;
-    left: 220px;
+    top: 48px;
+    left: 176px;
     z-index: 5;
-    transform: translateZ(28.5px);
+    transform: translateZ(22.8px);
+  }
+
+  @media (min-width: 768px) {
+    .book-top {
+      width: 170px;
+      height: 250px;
+      top: 60px;
+      left: 220px;
+      transform: translateZ(28.5px);
+    }
   }
 
   .book-side {
     position: absolute;
-    top: 309px; 
-    left: 192px;
-    transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
+    top: 247px;
+    left: 154px;
+    transform: translateY(-12px) translateX(0px) translateZ(12px) rotateX(104deg);
+    width: 80%;
+  }
+
+  @media (min-width: 768px) {
+    .book-side {
+      top: 309px;
+      left: 192px;
+      transform: translateY(-15px) translateX(0px) translateZ(15px) rotateX(104deg);
+      width: auto;
+    }
   }
   
   .preface {
     height: var(--separator-height);
-    padding: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 20px;
+    padding-left: 16px;
+    padding-right: 16px;
     transition: var(--transition);/*cubic-bezier(1,.98,.82,.98);*/
     background: white;
 
@@ -149,14 +184,15 @@
       .title {
         /* font-family: 'Open Sans', sans-serif; */
         font-family: 'Quicksand', sans-serif;
-        font-size: 22px;
-        margin-bottom: 10px;
+        font-size: 16px;
+        margin-bottom: 8px;
       }
 
       .author {
         font-family: 'Open Sans', sans-serif;
         font-style: italic;
         margin-bottom: 0px;
+        font-size: 11px;
       }
 
       .icon {
@@ -166,12 +202,37 @@
 
       .body {
         font-family: 'Quicksand', sans-serif;
+        font-size: 10px;
+      }
+
+      .body p:first-child {
+        margin-bottom: 12px;
+      }
+  }
+
+  @media (min-width: 768px) {
+    .preface {
+      padding: 30px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      .title {
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .author {
+        font-size: inherit;
+      }
+
+      .body {
         font-size: 12px;
       }
 
       .body p:first-child {
         margin-bottom: 15px;
       }
+    }
   }
   
    /* .container:hover > .mobile-layout .book-cover {      

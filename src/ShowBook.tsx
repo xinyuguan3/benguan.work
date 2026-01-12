@@ -357,7 +357,7 @@ const ShowBook = () => {
             </div>
           </BlurFade>
           <div className="w-full flex justify-center">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[600px] min-h-[800px]">
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[600px] min-h-[600px] md:min-h-[800px]">
               {DATA.projects.map((project, id) => (
                 <BlurFade
                   key={project.title}
@@ -381,6 +381,7 @@ const ShowBook = () => {
         </div>
       </section> */}
       <div className="container max-w-[1920px] mx-auto justify-center">
+<<<<<<< HEAD
         <section id="skills" className="pt-16">
         <BlurFade delay={0.1}>
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
@@ -420,6 +421,28 @@ const ShowBook = () => {
         </section>
         
         <section id="books" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4">
+=======
+
+        <div className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8 md:mb-16">
+
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
+
+            <BentoGrid className="lg:grid-rows-1 lg:grid-cols-4">
+              {features.map((feature) => (
+                <BentoCard
+                  key={feature.name}
+                  {...feature}
+                  onMouseEnter={(e) => handleFeatureHover(feature.name, e)}
+                  onMouseLeave={handleFeatureLeave}
+                />
+              ))}
+            </BentoGrid>
+
+          </div>
+
+        </div>
+        <section id="books" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4 mt-8 md:mt-0">
+>>>>>>> 79cfd84 (适配)
           <div className="w-full">
             <div className="m-auto">
               
