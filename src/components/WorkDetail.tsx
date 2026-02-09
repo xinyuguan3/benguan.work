@@ -18,6 +18,10 @@ const WorkDetail: React.FC = () => {
     }
   }, [workId]);
 
+  const currentIndex = works.findIndex((item) => item.id === workId);
+  const previousWork = currentIndex > 0 ? works[currentIndex - 1] : null;
+  const nextWork = currentIndex >= 0 && currentIndex < works.length - 1 ? works[currentIndex + 1] : null;
+
   if (!work) {
     return (
       <div className="work-detail-container">
@@ -191,21 +195,36 @@ const WorkDetail: React.FC = () => {
           ))}
         </div>
 
-        {/* 返回按钮 */}
-        <button
-          className="back-button"
-          onClick={() => {
-            navigate('/');
-            setTimeout(() => {
-              const worksElement = document.getElementById('works');
-              if (worksElement) {
-                worksElement.scrollIntoView({ behavior: 'smooth' });
-              }
-            }, 100);
-          }}
-        >
-          ← Back to Works
-        </button>
+        {/* Works navigation */}
+        <div className="work-switcher">
+          <div className="work-switcher-actions">
+            <button
+              className="back-button"
+              onClick={() => previousWork && navigate(`/works/${previousWork.id}`)}
+              disabled={!previousWork}
+            >
+              ← Previous
+            </button>
+            <button
+              className="back-button"
+              onClick={() => nextWork && navigate(`/works/${nextWork.id}`)}
+              disabled={!nextWork}
+            >
+              Next →
+            </button>
+          </div>
+          <div className="work-switcher-list">
+            {works.map((item) => (
+              <button
+                key={item.id}
+                className={`work-switcher-item ${item.id === work.id ? 'active' : ''}`}
+                onClick={() => navigate(`/works/${item.id}`)}
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* 进度条 */}
