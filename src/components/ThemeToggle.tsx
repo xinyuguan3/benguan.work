@@ -31,7 +31,7 @@ export function ThemeToggle() {
   // 在组件挂载时设置为深色模式
   React.useEffect(() => {
     document.documentElement.classList.add("dark")
-    setTheme("dark")
+    setTheme("light")
   }, [])
 
   return (

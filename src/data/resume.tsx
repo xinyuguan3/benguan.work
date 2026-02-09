@@ -6,6 +6,7 @@ import RelatoDemo from "../assets/RelatoDemo.mp4"
 import Oasis from "../assets/Oasis.png"
 import RelatoNetwork from "../assets/RelatoNetwork.png"
 import ArkalaVid from "../assets/Arkala.mp4"
+import OasisVideo from "../assets/OasisVideo.mp4"
 export const DATA = {
   name: "GUAN Ben Xinyu(关新宇)",
   initials: "DV",
@@ -190,12 +191,10 @@ export const DATA = {
       dates: "Nov 2024 - April 2025",
       active: true,
       description:
-        "A Social Media simulation project made up of 1000+ AI users, during experiment, agents emerge wisdom in the advanced layer, we might discover scaling law of AI agents. Lead designing playable demo.",
+        "A Social Media simulation made up of 1000+ AI Agents, during simulation, agents emerge trends in the macro scale. Mainly help marketing team test their promotion effects. As the product designer, I led the engineer team settle this solution for Camel AI.",
       technologies: [
-        "Next.js",
         "Typescript",
         "PostgreSQL",
-        "Prisma",
         "TailwindCSS",
         "Stripe",
         "Shadcn UI",
@@ -214,7 +213,7 @@ export const DATA = {
         },
       ],
       image: Oasis,
-      video: "https://private-user-images.githubusercontent.com/115660088/428396993-3bd2553c-d25d-4d8c-a739-1af51354b15a.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYzNzI4MDYsIm5iZiI6MTc0NjM3MjUwNiwicGF0aCI6Ii8xMTU2NjAwODgvNDI4Mzk2OTkzLTNiZDI1NTNjLWQyNWQtNGQ4Yy1hNzM5LTFhZjUxMzU0YjE1YS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNFQxNTI4MjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNTdlMmFlMzZhNTkzNDRlZWRiM2JkMDM4NzM5MGRmODMwOGQzYjQ2OWQ3NDU5ZDQ2MzNmY2JkMzVkOTJhOTNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.c65dm8JRrDYHOmuihGRiXPVE3HOSPpTeewdolj21j8U",
+      video: OasisVideo,
     },
     {
       title: "AI Society Simulator Game",
@@ -226,8 +225,10 @@ export const DATA = {
       technologies: [
         "Unity",
         "C#",
-        "OpenAI",
-        "Python"
+        "DeepSeek",
+        "Python",
+        "SQLite",
+        "Semantic Kernel"
       ],
       links: [
         {
@@ -251,7 +252,8 @@ export const DATA = {
         "Unity",
         "C#",
         "Deepseek",
-        "Python"
+        "Python",
+        "FastAPI"
       ],
       links: [
         {

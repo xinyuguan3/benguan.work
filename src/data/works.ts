@@ -37,6 +37,18 @@ import HouseHoldModal from "../assets/householdModel.gif"
 import SocietyNFT from "../assets/SocietyNFT.mp4"
 import SocietyNFT2 from "../assets/SocietyNFT2.mp4"
 import Arkala from "../assets/Arkala.mp4"
+import AgentSociety1 from "../assets/agentSociety1.png"
+import AgentSociety2 from "../assets/agentSociety2.png"
+import AgentSociety3 from "../assets/agentSociety3.png"
+import AgentSociety4 from "../assets/agentSociety4.png"
+import AgentSociety5 from "../assets/agentSociety5.png"
+import SmartCity1 from "../assets/smartCity1.png"
+import SmartCity2 from "../assets/smartCity2.png"
+import SmartCity3 from "../assets/smartCity3.png"
+import Oasis1 from "../assets/oasis1.png"
+import Oasis2 from "../assets/oasis2.png"
+import NftMarket1 from "../assets/nftMarket1.png"
+import NftMarket2 from "../assets/nftMarket2.png"
 
 export const works: Work[] = [
   {
@@ -53,6 +65,18 @@ export const works: Work[] = [
       {
         type: 'image',
         src: CommunityCompare
+      },
+      {
+        type: 'image',
+        src: SmartCity1
+      },
+      {
+        type: 'image',
+        src: SmartCity2
+      },
+      {
+        type: 'image',
+        src: SmartCity3
       }
     ],
     position: {
@@ -75,8 +99,13 @@ export const works: Work[] = [
         }
       },
       {
-        type: 'text',
-        content: "## Outcomes\n\n**Leasing Data Project:** Developed a business case that laid the groundwork for a potentially game-changing feature in commercial real estate management.\n\n**Charts and Tables Enhancement:** Designed improvements to data visualisation, making complex property data more accessible with added capabilities customers were asking for.\n\n**Retail Experience:** Proposed strategies to maintain momentum and ensure our retail experience remained a core offering.\n\n**Process and Ways of Working:** Delivered recommendations aimed at streamlining the design process, setting the stage for scalable growth."
+        type: 'mixed',
+        content: "## Outcomes\n\n**Leasing Data Project:** Developed a business case that laid the groundwork for a potentially game-changing feature in commercial real estate management.\n\n**Charts and Tables Enhancement:** Designed improvements to data visualisation, making complex property data more accessible with added capabilities customers were asking for.\n\n**Retail Experience:** Proposed strategies to maintain momentum and ensure our retail experience remained a core offering.\n\n**Process and Ways of Working:** Delivered recommendations aimed at streamlining the design process, setting the stage for scalable growth.",
+        media: {
+          type: 'image',
+          src: SmartCity1,
+          caption: "Smart City data visualization dashboard"
+        }
       },
       {
         type: 'mixed',
@@ -96,16 +125,26 @@ export const works: Work[] = [
         content: "## Weekly Breakdown\n\nI organised my days around 90- to 120-minute 'deep work' sessions. While surprises did pop up, I made sure to reserve at least two blocks for high-priority tasks.\n\n**Monday-Thursday**\n\n• 4-6 hours: Deep work on high-priority tasks\n• 2 hours: Work on second priority\n• 1 hour: Tertiary tasks\n\n**Friday**\n\n• Morning: Retail Experience and Process Improvement\n• Afternoon: Plan for the next week and tie up loose ends"
       },
       {
-        type: 'text',
-        content: "## Real-World Adaptability\n\nNo week ever went exactly as planned. Here's how I handled the curveballs:\n\n**Urgent Requests:** Built in buffers during afternoon sessions for unexpected issues.\n\n**Shifting Priorities:** Adjusted the 70-20-10 split when projects needed more attention.\n\n**Energy Management:** Tackled creative work during peak energy times, saved documentation for lower-energy periods."
+        type: 'mixed',
+        content: "## Real-World Adaptability\n\nNo week ever went exactly as planned. Here's how I handled the curveballs:\n\n**Urgent Requests:** Built in buffers during afternoon sessions for unexpected issues.\n\n**Shifting Priorities:** Adjusted the 70-20-10 split when projects needed more attention.\n\n**Energy Management:** Tackled creative work during peak energy times, saved documentation for lower-energy periods.",
+        media: {
+          type: 'image',
+          src: SmartCity2,
+          caption: "Smart City project implementation and workflow"
+        }
       },
       {
         type: 'text',
         content: "## Overcoming Constraints\n\n**Resource Crunch:** As the lone designer, workload was heavy. Designs often lacked detail before development.\n\n**Design-Development Disconnect:** Poor collaboration led to QA issues and overlooked gaps.\n\n**Lack of User Testing:** Without formal research, we risked building unwanted features."
       },
       {
-        type: 'text',
-        content: "## Innovative Solutions\n\n**Efficiency First:** Recommended off-the-shelf solutions for 70% of needs.\n\n**Design System:** Proposed design tokens for consistency and faster development.\n\n**Rapid Prototyping:** Enabled quick customer testing and feature refinement.\n\n**Measurable Results:** Jumpstarted efficiency, focused on critical 30%, and accelerated discovery through early feedback loops."
+        type: 'mixed',
+        content: "## Innovative Solutions\n\n**Efficiency First:** Recommended off-the-shelf solutions for 70% of needs.\n\n**Design System:** Proposed design tokens for consistency and faster development.\n\n**Rapid Prototyping:** Enabled quick customer testing and feature refinement.\n\n**Measurable Results:** Jumpstarted efficiency, focused on critical 30%, and accelerated discovery through early feedback loops.",
+        media: {
+          type: 'image',
+          src: SmartCity3,
+          caption: "Smart City design system and prototyping workflow"
+        }
       }
     ]
   },
@@ -120,6 +159,26 @@ export const works: Work[] = [
         type: 'video',
         src: AgentSociety
       },
+      {
+        type: 'image',
+        src: AgentSociety1
+      },
+      {
+        type: 'image',
+        src: AgentSociety2
+      },
+      {
+        type: 'image',
+        src: AgentSociety3
+      },
+      {
+        type: 'image',
+        src: AgentSociety4
+      },
+      {
+        type: 'image',
+        src: AgentSociety5
+      }
     ],
     position: {
       bottom: '15%',
@@ -137,16 +196,49 @@ export const works: Work[] = [
         }
       },
       {
-        type: 'text',
-        content: "## 30% Magic\n\nIn data visualisation, it's often the small UI decisions that make all the difference. Elements like typography, spacing, and content play crucial roles in how users perceive and interpret data. By honing in on these nuances, we can enhance the user experience and convey information more effectively."
+        type: 'mixed',
+        content: "## 30% Magic\n\nIn data visualisation, it's often the small UI decisions that make all the difference. Elements like typography, spacing, and content play crucial roles in how users perceive and interpret data. By honing in on these nuances, we can enhance the user experience and convey information more effectively.",
+        media: {
+          type: 'image',
+          src: AgentSociety1,
+          caption: "Agent Society UI design showcasing data visualization elements"
+        }
       },
       {
-        type: 'text',
-        content: "## Design Foundation\n\n**The Power of Boring**\n\nWith no design resources and no room for deep-dive user research, we anchored our UX strategy in Jakob's Law: users spend most of their time on other sites, so they expect ours to feel familiar.\n\nInspired by YouTube, the second most visited site in the world, I designed an experience with zero learning curve. This approach aims to minimise onboarding time and streamline future development by leveraging patterns users already know by heart."
+        type: 'mixed',
+        content: "## Design Foundation\n\n**The Power of Boring**\n\nWith no design resources and no room for deep-dive user research, we anchored our UX strategy in Jakob's Law: users spend most of their time on other sites, so they expect ours to feel familiar.\n\nInspired by YouTube, the second most visited site in the world, I designed an experience with zero learning curve. This approach aims to minimise onboarding time and streamline future development by leveraging patterns users already know by heart.",
+        media: {
+          type: 'image',
+          src: AgentSociety2,
+          caption: "Agent Society interface design following familiar UI patterns"
+        }
       },
       {
-        type: 'text',
-        content: "## Tiny Details. Big Impact.\n\nI zeroed in on the small yet impactful aspects of the UI to ensure effective data visualisation. These tweaks might seem minor, but they significantly enhance the user experience by making data clearer and easier to interpret."
+        type: 'mixed',
+        content: "## Tiny Details. Big Impact.\n\nI zeroed in on the small yet impactful aspects of the UI to ensure effective data visualisation. These tweaks might seem minor, but they significantly enhance the user experience by making data clearer and easier to interpret.",
+        media: {
+          type: 'image',
+          src: AgentSociety3,
+          caption: "Agent Society detailed UI components and visualization elements"
+        }
+      },
+      {
+        type: 'mixed',
+        content: "## User Interface Components\n\nThe Agent Society interface incorporates multiple specialized components designed for different user interactions and data visualizations. Each element was carefully crafted to balance functionality with usability.",
+        media: {
+          type: 'image',
+          src: AgentSociety4,
+          caption: "Agent Society component library and interface elements"
+        }
+      },
+      {
+        type: 'mixed',
+        content: "## Data Visualization\n\nEffective data representation is critical in Agent Society. We developed custom visualization components that transform complex social simulation data into intuitive, actionable insights for researchers and analysts.",
+        media: {
+          type: 'image',
+          src: AgentSociety5,
+          caption: "Agent Society data visualization dashboard and analytics"
+        }
       }
     ]
   },
@@ -164,6 +256,14 @@ export const works: Work[] = [
       {
         type: 'video',
         src: SocietyNFT2
+      },
+      {
+        type: 'image',
+        src: NftMarket1
+      },
+      {
+        type: 'image',
+        src: NftMarket2
       }
     ],
     position: {
@@ -186,12 +286,22 @@ export const works: Work[] = [
         }
       },
       {
-        type: 'text',
-        content: "## Breaking Legacy Barriers\n\n**Challenge**\n\nNFT platforms often rely on complex blockchain infrastructure, which can limit our ability to roll out innovative features. My challenge was to drive Web3 innovation while navigating these technical constraints.\n\n**Solution**\n\nTo strike the right balance between constraints and creativity, I developed a Feature Prioritisation Model. We start with baseline requirements to ensure core blockchain functionality is met. Then, a small team explores innovative NFT features without limitations. The game-changing concepts are shared with the wider group for consideration."
+        type: 'mixed',
+        content: "## Breaking Legacy Barriers\n\n**Challenge**\n\nNFT platforms often rely on complex blockchain infrastructure, which can limit our ability to roll out innovative features. My challenge was to drive Web3 innovation while navigating these technical constraints.\n\n**Solution**\n\nTo strike the right balance between constraints and creativity, I developed a Feature Prioritisation Model. We start with baseline requirements to ensure core blockchain functionality is met. Then, a small team explores innovative NFT features without limitations. The game-changing concepts are shared with the wider group for consideration.",
+        media: {
+          type: 'image',
+          src: NftMarket1,
+          caption: "NFT Marketplace feature prioritization model and interface design"
+        }
       },
       {
-        type: 'text',
-        content: "## A thousand minds, one heartbeat\n\n**Challenge**\n\nGetting NFT feature approval was a complex process involving design leads, product managers, legal, smart contract auditors, security experts, and community representatives. It was time-consuming, and the diverse feedback often added layers of complication.\n\n**Solution**\n\nI developed a set of principles to improve approval efficiency, enabling better time management and ensuring stakeholders receive maximum value with minimal time investment."
+        type: 'mixed',
+        content: "## A thousand minds, one heartbeat\n\n**Challenge**\n\nGetting NFT feature approval was a complex process involving design leads, product managers, legal, smart contract auditors, security experts, and community representatives. It was time-consuming, and the diverse feedback often added layers of complication.\n\n**Solution**\n\nI developed a set of principles to improve approval efficiency, enabling better time management and ensuring stakeholders receive maximum value with minimal time investment.",
+        media: {
+          type: 'image',
+          src: NftMarket2,
+          caption: "NFT Marketplace stakeholder collaboration and approval workflow"
+        }
       },
       {
         type: 'mixed',
@@ -230,6 +340,14 @@ export const works: Work[] = [
       {
         type: 'image',
         src: "https://source.unsplash.com/random/600x400?network,visualization&sig=42"
+      },
+      {
+        type: 'image',
+        src: Oasis1
+      },
+      {
+        type: 'image',
+        src: Oasis2
       }
     ],
     position: {
@@ -252,8 +370,13 @@ export const works: Work[] = [
         }
       },
       {
-        type: 'text',
-        content: "## The Solution\n\nOasis is an AI-driven social simulation platform that models complex social behaviors, detects emerging patterns, provides insights through its analytical dashboard, and generates predictive scenarios for social phenomena.\n\nIt learns from real social data via machine learning over time to create increasingly accurate representations of social dynamics from the moment users begin feeding it real-world data."
+        type: 'mixed',
+        content: "## The Solution\n\nOasis is an AI-driven social simulation platform that models complex social behaviors, detects emerging patterns, provides insights through its analytical dashboard, and generates predictive scenarios for social phenomena.\n\nIt learns from real social data via machine learning over time to create increasingly accurate representations of social dynamics from the moment users begin feeding it real-world data.",
+        media: {
+          type: 'image',
+          src: Oasis1,
+          caption: "Oasis platform architecture and AI simulation engine"
+        }
       },
       {
         type: 'mixed',
@@ -265,8 +388,13 @@ export const works: Work[] = [
         }
       },
       {
-        type: 'text',
-        content: "## Research Applications\n\n**Social Science Research:** Study complex social phenomena in controlled environments\n\n**Policy Development:** Test social policies before real-world implementation\n\n**Product Design:** Understand user behavior patterns for better UX design\n\n**Crisis Management:** Model social responses to emergencies and disasters\n\n**Community Building:** Optimize strategies for online community engagement"
+        type: 'mixed',
+        content: "## Research Applications\n\n**Social Science Research:** Study complex social phenomena in controlled environments\n\n**Policy Development:** Test social policies before real-world implementation\n\n**Product Design:** Understand user behavior patterns for better UX design\n\n**Crisis Management:** Model social responses to emergencies and disasters\n\n**Community Building:** Optimize strategies for online community engagement",
+        media: {
+          type: 'image',
+          src: Oasis2,
+          caption: "Oasis research applications and case studies"
+        }
       }
     ]
   },
@@ -278,7 +406,7 @@ export const works: Work[] = [
     backgroundImage: "https://source.unsplash.com/random/1920x1080?communication,tech&sig=5",
     cardMedia: [
       {
-        type: 'image',
+        type: 'video',
         src: RelatoDemo
       },
       {
@@ -300,7 +428,7 @@ export const works: Work[] = [
         type: 'mixed',
         content: "## The Challenge\n\nDigital written communication at work often suffers from several critical limitations:\n\n• **Rushed communication** - Messages sent hastily without proper consideration\n• **Lack of emotional accountability** - Difficulty conveying genuine empathy and understanding\n• **Missing live feedback** - No immediate response to gauge message impact\n• **Absence of personal context** - Limited ability to read between the lines\n\nThe lack of emotional intelligence—the capacity to be aware of, control, and express one's emotions, and to handle interpersonal relationships judiciously and empathetically—over digital written communication platforms at work can lead to increased instances of miscommunication and misinterpretation of one's message.\n\n*How might we help professionals communicate more effectively and empathetically in digital environments?*",
         media: {
-          type: 'image',
+          type: 'video',
           src: RelatoDemo,
           caption: "Analysis of communication challenges in digital workplaces"
         }
@@ -332,7 +460,7 @@ export const works: Work[] = [
     backgroundImage: "https://source.unsplash.com/random/1920x1080?children,education&sig=6",
     cardMedia: [
       {
-        type: 'image',
+        type: 'video',
         src: Arkala
       },
       {
@@ -354,7 +482,7 @@ export const works: Work[] = [
         type: 'mixed',
         content: "## The Challenge\n\nWhile digital media consumption may increase intellectual development in young children, it also leads to a significant decrease in their social and emotional development.\n\nThese findings really concerned us as interaction designers and creators of screen-based media, about where our future generation is heading. This was the common thread that got us all together to reimagine the future of socializing, bonding and learning through technology.\n\n*How might we create technology that enhances rather than diminishes children's social and emotional development?*",
         media: {
-          type: 'image',
+          type: 'video',
           src: Arkala,
           caption: "Children engaging with traditional vs digital learning experiences"
         }

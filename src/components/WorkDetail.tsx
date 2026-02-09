@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { works, Work } from '../data/works';
@@ -7,6 +7,7 @@ import './WorkDetail.css';
 
 const WorkDetail: React.FC = () => {
   const { workId } = useParams<{ workId: string }>();
+  const navigate = useNavigate();
   const [work, setWork] = useState<Work | null>(null);
   const [currentSection, setCurrentSection] = useState(0);
 
@@ -156,10 +157,10 @@ const WorkDetail: React.FC = () => {
       onWheel={handleScroll}
     >
       {/* 背景 */}
-      <div
+      {/* <div
         className="work-detail-background"
         style={{ backgroundImage: `url(${work.backgroundImage})` }}
-      />
+      /> */}
 
       {/* 内容区域 */}
       <div className="work-detail-content">
@@ -193,7 +194,15 @@ const WorkDetail: React.FC = () => {
         {/* 返回按钮 */}
         <button
           className="back-button"
-          onClick={() => window.location.href = '/#works'}
+          onClick={() => {
+            navigate('/');
+            setTimeout(() => {
+              const worksElement = document.getElementById('works');
+              if (worksElement) {
+                worksElement.scrollIntoView({ behavior: 'smooth' });
+              }
+            }, 100);
+          }}
         >
           ← Back to Works
         </button>

@@ -8,7 +8,7 @@ import SpotifyPlayer from './components/SpotifyPlayer';
 import { IconCloud } from "./components/magicui/icon-cloud";
 // import { AnimatePresence, motion } from "motion/react";
 import { BlurFade } from "./components/magicui/blur-fade";
-// import { ProjectCard } from "./components/project-card";
+import { ProjectCard } from "./components/project-card";
 import { DATA } from "./data/resume";
 import { Avatar, AvatarFallback, AvatarImage } from "./components/ui/avatar"
 import {
@@ -26,8 +26,8 @@ import { ShowArt } from './components/ShowArt';
 // import ScrollCircle from './components/ScrollCircle';
 import WorksShowcase from './components/WorksShowcase';
 import { works } from './data/works';
-import DotPattern from './components/DotPattern';
-import { ThemeToggle } from './components/ThemeToggle';
+// import DotPattern from './components/DotPattern';
+import SiteNavbar from './components/SiteNavbar';
 import AIExperience from './components/AIExperience';
 
 interface Point {
@@ -140,12 +140,23 @@ const ShowBook = () => {
 
   // 页面加载时如果在主页，则滚动到顶部
   useEffect(() => {
-    if (window.location.pathname === '/' && window.location.hash === '') {
-      window.scrollTo({
-        top: 0,
-        behavior: 'instant'
-      });
+    if (window.location.pathname !== '/') return;
+
+    if (window.location.hash) {
+      const id = window.location.hash.replace('#', '');
+      setTimeout(() => {
+        const targetElement = document.getElementById(id);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 0);
+      return;
     }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant'
+    });
   }, []);
 
   const books = booksData.books.map(book => ({
@@ -216,17 +227,6 @@ const ShowBook = () => {
   };
 
   // 添加平滑滚动功能
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
-    e.preventDefault();
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      window.scrollTo({
-        top: targetElement.offsetTop,
-        behavior: 'smooth'
-      });
-    }
-  };
-
   return (
     <>
       {/* <ScrollCircle 
@@ -245,14 +245,14 @@ const ShowBook = () => {
       /> */}
       
       {/* 添加呼吸效果的点状纹理背景 */}
-      <DotPattern 
+      {/* <DotPattern 
         color="rgba(240, 242, 245, 0.5)" 
         dotSize={2.5} 
         spacing={15} 
         opacity={0.5} 
         breathingSpeed={15}
         breathingIntensity={0.5}
-      />
+      /> */}
       
       {/* <div className="fixed inset-0 w-full h-full -z-10 pointer-events-none">
     <InteractiveGridPattern
@@ -264,32 +264,11 @@ const ShowBook = () => {
 
       {/* <FlickeringGrid /> */}
 
-      <header className="sticky top-0 z-40 w-full">
-        <div className="container flex h-16 items-center">
-          <div className="mr-4 hidden md:flex">
-            <a className="mr-6 flex items-center space-x-2" href="/">
-              <span className="font-bold">Ben GUAN</span>
-            </a>
-          </div>
-          <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-            <nav className="flex items-center space-x-6 gap-10">
-              {/* <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Projects</a> */}
-              
-              <a href="#works" onClick={(e) => handleNavClick(e, 'works')}>Works</a>
-              <a href="#skills" onClick={(e) => handleNavClick(e, 'skills')}>Skills</a>
-              <a href="#ai-experience" onClick={(e) => handleNavClick(e, 'ai-experience')}>Agent</a>
-              <a href="#books" onClick={(e) => handleNavClick(e, 'books')}>Books</a>
-              <a href="#projects" onClick={(e) => handleNavClick(e, 'projects')}>Portfolio</a>
-              <ThemeToggle />
-              {/* <a href="#about">About</a> */}
-            </nav>            
-          </div>
-        </div>
-      </header>
+      <SiteNavbar />
 
     
       <section id="hero">
-      <div className="w-full flex justify-center pt-16">
+      <div className="w-full flex justify-center pt-36">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
@@ -318,27 +297,8 @@ const ShowBook = () => {
       </div>
       </section>
       
-      <section id="works" className="w-full min-h-screen">
-        <BlurFade delay={BLUR_FADE_DELAY * 10}>
-          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 pt-16 px-4 lg:px-16 xl:px-32 2xl:px-44">
-            <div className="space-y-2">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                My Works
-              </div>
-              <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
-                My Works
-              </h2>
-              <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Here are some of my recent works.
-              </p>
-            </div>
-          </div>
-        </BlurFade>
-        <WorksShowcase works={works} />
-      </section>
-      
-      {/* <section id="projects">
-        <div className="space-y-12 w-full py-12">
+      <section id="projects">
+        <div className="space-y-12 w-full py-42">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -346,12 +306,14 @@ const ShowBook = () => {
                   My Projects
                 </div>
                 <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
-                  Check out my latest work
+                  Check out my latest projects
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  I&apos;ve worked on a variety of projects, from simple
-                  websites to complex games. Here are a few of my
-                  favorites.
+                  I&apos;ve worked on a variety of projects, from commercial tools to complex games. Here are a few of my
+                  favorites. 
+                </p>
+                <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Below in "works" section, you can find more details about my design process.
                 </p>
               </div>
             </div>
@@ -379,9 +341,9 @@ const ShowBook = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
       <div className="container max-w-[1920px] mx-auto justify-center">
-        <section id="skills" className="pt-16">
+        <section id="skills" className="pt-2">
         <BlurFade delay={0.1}>
         <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
           <div className="space-y-2">
@@ -414,6 +376,26 @@ const ShowBook = () => {
             </div>
           </div>
         </section>
+
+              
+      <section id="works" className="w-full min-h-screen">
+        <BlurFade delay={BLUR_FADE_DELAY * 10}>
+          <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8 pt-16 px-4 lg:px-16 xl:px-32 2xl:px-44">
+            <div className="space-y-2">
+              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                My Works
+              </div>
+              <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
+                My Works
+              </h2>
+              <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                Here are some of my recent works.
+              </p>
+            </div>
+          </div>
+        </BlurFade>
+        <WorksShowcase works={works} />
+      </section>
 
         <section id="ai-experience" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4">
           <AIExperience />

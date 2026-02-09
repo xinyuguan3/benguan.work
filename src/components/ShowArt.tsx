@@ -24,7 +24,7 @@ const firstRow = artworks.slice(0, artworks.length / 2);
 const secondRow = artworks.slice(artworks.length / 2);
 
 const ArtCard = ({ img, title }: { img: string; title?: string }) => (
-  <div className="relative h-48 w-64 overflow-hidden rounded-xl border p-2 flex flex-col items-center justify-center bg-white dark:bg-gray-900">
+  <div className="relative h-48 w-64 overflow-hidden rounded-xl border p-2 flex flex-col items-center justify-center bg-card text-card-foreground">
     <img src={img} alt={title} className="object-cover h-40 w-full rounded" />
     {title && <div className="mt-2 text-center text-sm font-medium">{title}</div>}
   </div>

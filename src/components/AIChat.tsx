@@ -149,7 +149,7 @@ const AIChat: React.FC<AIProps> = ({ initialPrompt }) => {
     <div className="w-full max-w-3xl mx-auto bg-background border rounded-xl shadow-lg overflow-hidden breathe-effect h-full">
       <div className="flex flex-col h-full relative z-20">
         <div className="p-4 border-b bg-muted/30">
-          <h2 className="text-lg font-medium">与游戏设计助手对话</h2>
+          <h2 className="text-lg font-medium">Talk to the game design assistant</h2>
         </div>
         
         <div className="flex-1 overflow-y-auto p-4 space-y-4">
