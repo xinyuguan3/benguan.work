@@ -1,12 +1,10 @@
-
 import { HomeIcon, NotebookIcon } from "lucide-react";
 import { Icons } from "../components/icons";
-import AgentSociety from "../assets/AgentSociety.mp4"
-import RelatoDemo from "../assets/RelatoDemo.mp4"
-import Oasis from "../assets/Oasis.png"
-import RelatoNetwork from "../assets/RelatoNetwork.png"
-import ArkalaVid from "../assets/Arkala.mp4"
-import OasisVideo from "../assets/OasisVideo.mp4"
+import AgentSociety from "../assets/AgentSociety.mp4";
+import RelatoDemo from "../assets/RelatoDemo.mp4";
+import Oasis from "../assets/Oasis.png";
+import RelatoNetwork from "../assets/RelatoNetwork.png";
+import ArkalaVid from "../assets/Arkala.mp4";
 export const DATA = {
   name: "GUAN Ben Xinyu(关新宇)",
   initials: "DV",
@@ -14,7 +12,7 @@ export const DATA = {
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description:
-    "I elevate products through human-centered design.",
+    "I elevate interactive experience through human-centered design.",
   summary:
     "At the end of 2022, I quit my job as a software engineer to go fulltime into building and scaling my own SaaS businesses. In the past, [I pursued a double degree in computer science and business](/#education), [interned at big tech companies in Silicon Valley](https://www.youtube.com/watch?v=d-LJ2e5qKdE), and [competed in over 21 hackathons for fun](/#hackathons). I also had the pleasure of being a part of the first ever in-person cohort of buildspace called [buildspace sf1](https://buildspace.so/sf1).",
   avatarUrl: "./assets/profilepic.jpg",
@@ -78,110 +76,50 @@ export const DATA = {
 
   work: [
     {
-      company: "Atomic Finance",
-      href: "https://atomic.finance",
+      company: "Tencent Games",
+      href: "https://tencent.com/en-us/games",
       badges: [],
-      location: "Remote",
-      title: "Bitcoin Protocol Engineer",
-      logoUrl: "/atomic.png",
-      start: "May 2021",
-      end: "Oct 2022",
+      location: "Shenzhen, China",
+      title: "Technical Game Designer",
+      logoUrl: "/tencent.png",
+      start: "June 2023",
+      end: "Feb 2024",
       description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+        "Worked as a Technical Game Designer in a 3 million MAU UGC mobile game, focusing on integrating game making functions into game editor. Led the development of AI-driven NPC behavior systems using Unity and C#, enhancing player immersion and interaction. Collaborated with cross-functional teams to prototype and implement innovative gameplay mechanics.",
     },
     {
-      company: "Shopify",
+      company: "Camel AI",
       badges: [],
-      href: "https://shopify.com",
-      location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/shopify.svg",
-      start: "January 2021",
-      end: "April 2021",
+      href: "https://camel-ai.org",
+      location: "Remote, Hong Kong",
+      title: "AI Product Manager & Frontend Designer",
+      logoUrl: "/camel-ai.svg",
+      start: "July 2024",
+      end: "July 2025",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
+        "Spearheaded the development of Oasis, a groundbreaking AI-driven social media simulation platform, leading a cross-functional team of 8 engineers and designers. Oversaw product strategy, roadmap, and execution, resulting in a successful launch that attracted over 5,000 active users within the first three months. Designed intuitive user interfaces and seamless user experiences using Next.js and TailwindCSS, significantly enhancing user engagement and retention.",
     },
     {
-      company: "Nvidia",
-      href: "https://nvidia.com/",
+      company: "Parametrix.ai",
+      href: "https://parametrix.ai/",
       badges: [],
-      location: "Santa Clara, CA",
+      location: "Shenzhen, China",
       title: "Software Engineer",
-      logoUrl: "/nvidia.png",
-      start: "January 2020",
-      end: "April 2020",
+      logoUrl: "/parametrix.ai.png",
+      start: "Oct 2025",
+      end: "Jan 2026",
       description:
-        "Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
-    },
-    {
-      company: "Splunk",
-      href: "https://splunk.com",
-      badges: [],
-      location: "San Jose, CA",
-      title: "Software Engineer",
-      logoUrl: "/splunk.svg",
-      start: "January 2019",
-      end: "April 2019",
-      description:
-        "Co-developed a prototype iOS app with another intern in Swift for the new Splunk Phantom security orchestration product (later publicly demoed and launched at .conf annual conference in Las Vegas). Implemented a realtime service for the iOS app in Django (Python) and C++; serialized data using protobufs transmitted over gRPC resulting in an approximate 500% increase in data throughput.",
-    },
-    {
-      company: "Lime",
-      href: "https://li.me/",
-      badges: [],
-      location: "San Francisco, CA",
-      title: "Software Engineer",
-      logoUrl: "/lime.svg",
-      start: "January 2018",
-      end: "April 2018",
-      description:
-        "Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
-    },
-    {
-      company: "Mitre Media",
-      href: "https://mitremedia.com/",
-      badges: [],
-      location: "Toronto, ON",
-      title: "Software Engineer",
-      logoUrl: "/mitremedia.png",
-      start: "May 2017",
-      end: "August 2017",
-      description:
-        "Designed and implemented a robust password encryption and browser cookie storage system in Ruby on Rails. Leveraged the Yahoo finance API to develop the dividend.com equity screener",
+        "Design and produce LLM-driven AI gameplay machanics, mainly through JSON outputs from LLM to interact with game systems. ",
     },
   ],
   education: [
     {
-      school: "Buildspace",
-      href: "https://buildspace.so",
-      degree: "s3, s4, sf1, s5",
-      logoUrl: "/buildspace.jpg",
-      start: "2023",
-      end: "2024",
-    },
-    {
-      school: "University of Waterloo",
-      href: "https://uwaterloo.ca",
-      degree: "Bachelor's Degree of Computer Science (BCS)",
-      logoUrl: "/waterloo.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "Wilfrid Laurier University",
-      href: "https://wlu.ca",
-      degree: "Bachelor's Degree of Business Administration (BBA)",
-      logoUrl: "/laurier.png",
-      start: "2016",
-      end: "2021",
-    },
-    {
-      school: "International Baccalaureate",
-      href: "https://ibo.org",
-      degree: "IB Diploma",
-      logoUrl: "/ib.png",
-      start: "2012",
-      end: "2016",
+      school: "City University of Hong Kong",
+      href: "https://cityu.edu.hk",
+      degree: "Bachelor's Degree of Creative Media (BSC)",
+      logoUrl: "/cityu.png",
+      start: "2018",
+      end: "2023",
     },
   ],
   projects: [
@@ -213,7 +151,8 @@ export const DATA = {
         },
       ],
       image: Oasis,
-      video: OasisVideo,
+      video:
+        "https://private-user-images.githubusercontent.com/115660088/428396993-3bd2553c-d25d-4d8c-a739-1af51354b15a.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDYzNzI4MDYsIm5iZiI6MTc0NjM3MjUwNiwicGF0aCI6Ii8xMTU2NjAwODgvNDI4Mzk2OTkzLTNiZDI1NTNjLWQyNWQtNGQ4Yy1hNzM5LTFhZjUxMzU0YjE1YS5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNTA0JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDUwNFQxNTI4MjZaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mNTdlMmFlMzZhNTkzNDRlZWRiM2JkMDM4NzM5MGRmODMwOGQzYjQ2OWQ3NDU5ZDQ2MzNmY2JkMzVkOTJhOTNlJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.c65dm8JRrDYHOmuihGRiXPVE3HOSPpTeewdolj21j8U",
     },
     {
       title: "AI Society Simulator Game",
@@ -222,14 +161,7 @@ export const DATA = {
       active: true,
       description:
         "AI Story Generator which simulates a small society and generates random events based on villagers automated interactions. Each villager is an AI NFT agent on SUI blockchain. Nobody can change the game stats once minted, the agent will be self-evolving through LLM reflections.",
-      technologies: [
-        "Unity",
-        "C#",
-        "DeepSeek",
-        "Python",
-        "SQLite",
-        "Semantic Kernel"
-      ],
+      technologies: ["Unity", "C#", "OpenAI", "Python"],
       links: [
         {
           type: "Website",
@@ -238,8 +170,7 @@ export const DATA = {
         },
       ],
       image: RelatoNetwork,
-      video:
-        RelatoDemo,
+      video: RelatoDemo,
     },
     {
       title: "Agent Society",
@@ -248,13 +179,7 @@ export const DATA = {
       active: true,
       description:
         "AI Agent Society simulation tool, researchers can simulate in market behaviour, information exchange, pandemic transmission, etc. Led UI/UX design & frontend development.",
-      technologies: [
-        "Unity",
-        "C#",
-        "Deepseek",
-        "Python",
-        "FastAPI"
-      ],
+      technologies: ["Unity", "C#", "Deepseek", "Python"],
       links: [
         {
           type: "Website",
@@ -268,8 +193,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video:
-        AgentSociety,
+      video: AgentSociety,
     },
     {
       title: "Arkala",
@@ -278,12 +202,7 @@ export const DATA = {
       active: true,
       description:
         "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
-      technologies: [
-        "Unity",
-        "C#",
-        "OpenAI",
-        "Python"
-      ],
+      technologies: ["Unity", "C#", "OpenAI", "Python"],
       links: [
         {
           type: "Website",
@@ -294,6 +213,5 @@ export const DATA = {
       image: "",
       video: ArkalaVid,
     },
-
   ],
 } as const;
