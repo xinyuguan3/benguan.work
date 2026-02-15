@@ -1,14 +1,19 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { works } from "../data/works";
+
+const firstWorkId = works[0]?.id;
+const worksPath = firstWorkId ? `/works/${firstWorkId}` : "/works";
 
 const sections = [
   { label: "Projects", hash: "projects" },
   { label: "Skills", hash: "skills" },
-  { label: "Works", hash: "works" },
+  { label: "Works", path: worksPath },
   { label: "Blog", path: "/blog" },
   { label: "Agent", hash: "ai-experience" },
   { label: "Books", hash: "books" },
+  { label: "Reading", path: "/reading" },
 ];
 
 const SiteNavbar: React.FC = () => {

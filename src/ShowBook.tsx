@@ -24,9 +24,9 @@ import profilePic from './assets/profilepic.jpg';
 import SkillRadar from './components/SkillRadar';
 import { ShowArt } from './components/ShowArt';
 // import ScrollCircle from './components/ScrollCircle';
+// import DotPattern from './components/DotPattern';
 import WorksShowcase from './components/WorksShowcase';
 import { works } from './data/works';
-// import DotPattern from './components/DotPattern';
 import SiteNavbar from './components/SiteNavbar';
 import AIExperience from './components/AIExperience';
 
@@ -344,7 +344,7 @@ const ShowBook = () => {
       </section>
       <div className="container max-w-[1920px] mx-auto justify-center">
 
-        <div className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8 md:mb-16">
+        <section id="skills" className="w-full px-4 lg:px-16 xl:px-16 2xl:px-44 mb-8 md:mb-16">
 
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-6">
 
@@ -361,7 +361,32 @@ const ShowBook = () => {
 
           </div>
 
-        </div>
+        </section>
+
+        <section id="works" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-10">
+          <div className="w-full">
+            <BlurFade delay={0.1}>
+              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10">
+                <div className="space-y-2">
+                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
+                    Works
+                  </div>
+                  <h2 className="text-3xl font-bold text-foreground tracking-tighter sm:text-5xl">
+                    Selected Case Studies
+                  </h2>
+                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    Tap a project to open the full work detail page.
+                  </p>
+                </div>
+              </div>
+            </BlurFade>
+            <WorksShowcase works={works} />
+          </div>
+        </section>
+
+        <section id="ai-experience" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-10">
+          <AIExperience />
+        </section>
         <section id="books" className="w-full px-4 lg:px-16 xl:px-32 2xl:px-44 relative z-10 py-4 mt-8 md:mt-0">
           <div className="w-full">
             <div className="m-auto">

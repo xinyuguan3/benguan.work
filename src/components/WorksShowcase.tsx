@@ -144,7 +144,7 @@ const WorksShowcase: React.FC<WorksShowcaseProps> = ({ works }) => {
   const handleWorkClick = (workId: string) => {
     console.log(`Work ${workId} clicked`);
     // 导航到作品详情页面
-    navigate(`/work/${workId}`);
+    navigate(`/works/${workId}`);
   };
 
   // 找到当前悬停的作品

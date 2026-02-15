@@ -325,6 +325,66 @@
   transform: translateX(-5px);
 }
 
+.back-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.work-switcher {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.work-switcher-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.work-switcher-actions .back-button {
+  position: static;
+  transform: none;
+}
+
+.work-switcher-actions .back-button:hover {
+  transform: translateY(-2px);
+}
+
+.work-switcher-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  max-width: 900px;
+}
+
+.work-switcher-item {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.work-switcher-item:hover {
+  border-color: var(--primary);
+  background: var(--accent);
+}
+
+.work-switcher-item.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
 /* 进度条 */
 .progress-bar {
   position: fixed;
