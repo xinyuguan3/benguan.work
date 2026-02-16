@@ -96,8 +96,8 @@ export const posts: BlogPost[] = [
   },
   {
     slug: "notes-on-readable-motion",
-    title: "Notes On Readable Motion",
-    subtitle: "Why the best animation feels like typography.",
+    title: "重拾自媒体",
+    subtitle: "认真经营的开始，不要停",
     date: "2025-09-30",
     readingTime: 9,
     tags: ["Motion", "UI"],
@@ -105,19 +105,36 @@ export const posts: BlogPost[] = [
     excerpt:
       "Motion is not decoration. It is punctuation. This piece outlines a small grammar for timing, easing, and sequence that keeps motion legible.",
     content: `
-## Motion as punctuation
+## 开始发自媒体
 
-Think of motion as the comma and period of your interface. It doesn't dominate the sentence; it shapes the cadence.
+今天又开始重拾小红书，开始发自己的笔记，但是感到自己明显端着，还需要靠gemini生成第一篇的文案内容，因为太担心自己无法和其他人同频。
+这种恐惧感让我不知道文字上该做自己还是迎合别人。所以我只能回到自己的博客中，开始不要停止的写作，重新锻炼自己对于文字的掌控力。
 
-### Timing rules
+## 文字组织力
 
-- 120-180ms for micro transitions
-- 280-420ms for layout shifts
-- Never stack unrelated animations
+对于文字的掌控力是一种上层架构，它建立在人类这几百亿参数的神经网络之上，需要反复锻炼。这个星球上最具影响力的一些人类：政客、作家、企业、哲学家。
+他们总是能说会道，对于文字的长期组织使得结构与逻辑思维能时常保持清晰紧密，这就是长期组织语言能给大脑底层能力带来的提升。
 
-## Sequence, not spectacle
+## 博客
 
-When elements enter, make them *agree* on direction and timing. That agreement is what the eye reads as order.
+最近爱看很多外网RSS订阅的博客，我尤其喜欢看互联网产品类的博客。科技媒体总是为了整个资本趋势而为了互联网科技各种吹捧，但它往往遮蔽掉了一些真相。
+科技媒体习惯了通过组织语言来为全球的科技人员洗脑，让更多人、钱加入到这个趋势中。而很多右派精英对于这些现象的批评也精确到位：人类的科技已经停滞，
+我们不再像上世纪一样每天热切地讨论着殖民火星、汽车飞行、太空电梯，各种科幻幻想逐渐被手机与互联网应用取代，我们落回了小部落状态，不再仰望星空。
+这也是为什么我喜欢看互联网产品类博客：我从未生在那个向往太空和一切宏伟目标的时代，我只能看到的是，天道的规律和涨幅仍然发生在世界上涨落往返，但是互联网app的某几个设计细节，像带着某种赛博神性一样，在资本和贪婪的潮汐之中螺旋上升了一点点。
+tinder的划动是的，spotify的流媒体加载是的，tiktok的流量池分发更是的。
+这些互联网产品，带来一个又一个生活中细致可感的一点点提升。通过网络与金融，消解了时间和空间，通过简单直给的app设计，把价值更确切地交付到普通人手中。
+每当我阅读这些博客，我就感到自己又前进了一点，世界在我面前又清晰了一点
+
+## 产品
+
+归结到我要做的产品，某种程度上我也更加清楚自己需要做的是什么：大部分人并不喜欢摆弄东西（they are not tinkerers），我洞察到他们不喜欢。
+他们需要的是一个不需要他们在这上面花那么多意志力、注意力就能获得价值的事情。这也是整个互联网经济存在的意义，不断地为人们带来傻瓜式服务，带来稳定的体验，而他们什么都不用做，甚至不知道他们本应做这些。
+建造东西，在认知上是昂贵的，不论在经济上是否可行。
+所以我非常愿意给他们做一个，能降低门槛、带来高体验的游戏化阅读产品。
+我现在唯一要做的就是验证这是个需求，然后决定我该用广告还是订阅。。
+选广告，体验下降
+选订阅，基本会丢掉大部分中国用户
+但我希望能为中国用户带来更多价值，所以广告应该是主要的商业模式，订阅会像duolingo一样提供无广告体验
 `,
   },
   {
